@@ -26,7 +26,7 @@ public class Mover : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float moveInputX = Input.GetAxisRaw("Horizontal");
         float moveInputY = Input.GetAxisRaw("Vertical");
@@ -43,7 +43,7 @@ public class Mover : MonoBehaviour
         {
             if (bottomRayCast.collider.tag is "Walkable")
             {
-                Debug.Log("walkable");
+                canWalk = true;
             }
         }
 
