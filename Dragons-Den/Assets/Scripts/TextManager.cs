@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TextManager : MonoBehaviour
 {
-    [SerializeField] Text text;
+    [SerializeField] TMP_Text text;
     [SerializeField] Button closeText;
     
     public void NPCText(string textToWrite)
     {
         text.text = textToWrite;
-        text.enabled = true;
-        closeText.enabled = true;
+        text.gameObject.SetActive(true);
+        closeText.gameObject.SetActive(true);
     }
 
     public void CloseText()
     {
-        closeText.enabled = false;
-        text.enabled = false;
+        closeText.gameObject.SetActive(false);
+        text.gameObject.SetActive(false);
     }
 }
