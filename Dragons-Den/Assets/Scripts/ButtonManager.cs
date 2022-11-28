@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
@@ -24,21 +25,36 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject playerChariot;
 
     [SerializeField] Vector2 playerStartPosition;
-    [SerializeField] Vector2 playerEndPosition;
+    [SerializeField] Vector2 goldOppStartPosition;
+    [SerializeField] Vector2 silverOppStartPosition;
 
-    private float moveInterval;
+    [SerializeField] Vector2 endPosition;
+
+    private float playerMoveInterval;
+    private float goldMoveInterval;
+    private float silverMoveInterval;
 
     [SerializeField] GameObject[] opponentChariots;
 
     public Question[] Questions;
+
+    [SerializeField] float GoldPassingPercentage;
+
+    [SerializeField] float SilverPassingPercentage;
+
+    private GameObject goldChariot;
+    private GameObject silverChariot;
+
     private Question temp;
 
     private int correctAnswer;
 
-    private int playerScore;
+    public static int playerScore;
 
     int index;
-    
+
+    private Vector2 targetPosition;
+
     private void Awake()
     {
         QuestionBoxText = QuestionBox.GetComponentInChildren<TMPro.TextMeshProUGUI>();
@@ -47,6 +63,21 @@ public class ButtonManager : MonoBehaviour
     }
     void Start()
     {
+        //Assign Gold and Silver chariots from array of opponent chariots
+        for (int i = 0; i < opponentChariots.Length; i++)
+        {
+            if (i == 0)
+            {
+                goldChariot = opponentChariots[i];
+            }
+
+            if (i == 1)
+            {
+                silverChariot = opponentChariots[i];
+            }
+        }
+
+        //PlayerCharPos
         if (playerStartPosition != Vector2.zero)
         {
             playerChariot.transform.position = playerStartPosition;
@@ -56,9 +87,31 @@ public class ButtonManager : MonoBehaviour
             playerStartPosition = playerChariot.transform.position;
         }
 
-        Debug.Log(Questions.Length);
+        //GoldCharPos
+        if (goldOppStartPosition != Vector2.zero)
+        {
+            goldChariot.transform.position = goldOppStartPosition;
+        }
 
-        moveInterval = (playerEndPosition.x - playerStartPosition.x) / Questions.Length;
+        else
+        {
+            goldOppStartPosition = goldChariot.transform.position;
+        }
+        
+        //SilverCharPos
+        if (silverOppStartPosition != Vector2.zero)
+        {
+            silverChariot.transform.position = silverOppStartPosition;
+        }
+        else
+        {
+            silverOppStartPosition = silverChariot.transform.position;
+        }
+
+        playerMoveInterval = (endPosition.x - playerStartPosition.x) / Questions.Length;
+        goldMoveInterval = (endPosition.x - goldOppStartPosition.x) / ((Questions.Length) + Mathf.Abs(GoldPassingPercentage - 110) / 10);
+        silverMoveInterval = (endPosition.x - silverOppStartPosition.x) / ((Questions.Length) + Mathf.Abs(SilverPassingPercentage - 110) / 10);
+
 
         ShuffleQuestions(Questions);
         NextQuestion();
@@ -66,6 +119,13 @@ public class ButtonManager : MonoBehaviour
 
     void NextQuestion()
     {
+        if (index == 7)
+        {
+            Debug.Log("Finish");
+            SceneManager.LoadScene("ChariotPlacement", LoadSceneMode.Single);
+        }
+
+
         QuestionBoxText.text = Questions[index].DisplayQuesion;
         if (Random.Range(0, 2) == 1)
         {
@@ -86,13 +146,14 @@ public class ButtonManager : MonoBehaviour
     public void ActivateButton1()
     {
         if (correctAnswer == 1)
-        {           
+        {
             playerScore++;
-            StartCoroutine(MovePlayerChariot());
+            StartCoroutine(MoveChariots());
             Debug.Log("Correct");
         }
         else
         {
+            StartCoroutine(MoveOpponentChariots());
             Debug.Log("Incorrect");
         }
 
@@ -105,11 +166,12 @@ public class ButtonManager : MonoBehaviour
         if (correctAnswer == 2)
         {
             playerScore++;
-            StartCoroutine(MovePlayerChariot());
+            StartCoroutine(MoveChariots());
             Debug.Log("Correct");
         }
         else
         {
+            StartCoroutine(MoveOpponentChariots());
             Debug.Log("Incorrect");
         }
 
@@ -131,17 +193,27 @@ public class ButtonManager : MonoBehaviour
     {
         return playerScore;
     }
-    
+
     public float GetPlayerAverage()
     {
         return (playerScore / index) * 100;
     }
 
-    IEnumerator MovePlayerChariot()
+    IEnumerator MoveChariots()
     {
-        playerChariot.transform.position += new Vector3(moveInterval, 0, 0);
-
+        playerChariot.transform.position += new Vector3(playerMoveInterval, 0, 0);
+        StartCoroutine(MoveOpponentChariots());
         yield return new WaitForFixedUpdate();
     }
 
+    IEnumerator MoveOpponentChariots()
+    {
+        goldChariot.transform.position += new Vector3(goldMoveInterval, 0, 0);
+        silverChariot.transform.position += new Vector3(silverMoveInterval, 0, 0);
+        yield return new WaitForEndOfFrame();
+    }
+
+
+
+    
 }
