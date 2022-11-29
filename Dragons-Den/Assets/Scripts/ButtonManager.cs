@@ -38,6 +38,8 @@ public class ButtonManager : MonoBehaviour
 
     public Question[] Questions;
 
+    public static int questionLength;
+
     public static float GoldPassingPercentage = 90;
 
     public static float SilverPassingPercentage = 70;
@@ -112,9 +114,28 @@ public class ButtonManager : MonoBehaviour
         goldMoveInterval = (endPosition.x - goldOppStartPosition.x) / ((Questions.Length) + Mathf.Abs(GoldPassingPercentage - 110) / 10);
         silverMoveInterval = (endPosition.x - silverOppStartPosition.x) / ((Questions.Length) + Mathf.Abs(SilverPassingPercentage - 110) / 10);
 
+        questionLength = Questions.Length;
 
         ShuffleQuestions(Questions);
         NextQuestion();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.N))
+        {
+            playerScore++;
+            StartCoroutine(MoveChariots());
+            Debug.Log("Correct"); 
+            NextQuestion();
+        }
+
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            StartCoroutine(MoveOpponentChariots());
+            Debug.Log("InCorrect");
+            NextQuestion();
+        }
     }
 
     void NextQuestion()
@@ -205,6 +226,11 @@ public class ButtonManager : MonoBehaviour
         return (playerScore / index) * 100;
     }
 
+    public static int GetQuestionCount()
+    {
+        return questionLength;
+    }
+
     IEnumerator MoveChariots()
     {
         playerChariot.transform.position += new Vector3(playerMoveInterval, 0, 0);
@@ -218,8 +244,4 @@ public class ButtonManager : MonoBehaviour
         silverChariot.transform.position += new Vector3(silverMoveInterval, 0, 0);
         yield return new WaitForEndOfFrame();
     }
-
-
-
-    
 }

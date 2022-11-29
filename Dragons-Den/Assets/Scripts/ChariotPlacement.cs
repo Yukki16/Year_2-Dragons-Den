@@ -30,27 +30,7 @@ public class ChariotPlacement : MonoBehaviour
 
         if (playerChariot.transform.position.x > finishLine.transform.position.x)
         {
-            if (ButtonManager.GetPlayerAverage() >= ButtonManager.GoldPassingPercentage)
-            {
-               // Debug.Log("Gold");
-                StartCoroutine(fs.GetComponent<Scoring>().DisplayFinalScoreElements('g'));
-            }
-            
-            if (ButtonManager.GetPlayerAverage() >= ButtonManager.SilverPassingPercentage &&
-                ButtonManager.GetPlayerAverage() > ButtonManager.GoldPassingPercentage)
-            {
-               // Debug.Log("Silver");
-                StartCoroutine(fs.GetComponent<Scoring>().DisplayFinalScoreElements('g'));
-            }
-
-            if (ButtonManager.GetPlayerAverage() < ButtonManager.SilverPassingPercentage)
-            {
-               // Debug.Log("Bronze");
-                StartCoroutine(fs.GetComponent<Scoring>().DisplayFinalScoreElements('g'));
-            }
-
-
-
+                StartCoroutine(fs.GetComponent<Scoring>().DisplayFinalScoreElements((float)ButtonManager.GetPlayerScore(), (float)ButtonManager.GetQuestionCount(), ButtonManager.GoldPassingPercentage, ButtonManager.SilverPassingPercentage));       
         }
     }
 

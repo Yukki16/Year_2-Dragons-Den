@@ -1244,7 +1244,7 @@ MonoBehaviour:
   playerStartPosition: {x: 0, y: 0}
   goldOppStartPosition: {x: 0, y: 0}
   silverOppStartPosition: {x: 0, y: 0}
-  endPosition: {x: 12, y: 0}
+  endPosition: {x: 10, y: 0}
   opponentChariots:
   - {fileID: 1731939266}
   - {fileID: 2069350887}

@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class Scoring : MonoBehaviour
 {
 
-    [SerializeField] TMPro.TextMeshProUGUI AnswerBox2Text;
+    [SerializeField] TMPro.TextMeshProUGUI placementText;
+
+    [SerializeField] GameObject TransparentBG;
+
     [SerializeField] GameObject goldTrophyCard;
     [SerializeField] GameObject silverTrophyCard;
     [SerializeField] GameObject bronzeTrophyCard;
@@ -20,50 +23,112 @@ public class Scoring : MonoBehaviour
         goldTrophyCard.SetActive(false);
         silverTrophyCard.SetActive(false);
         bronzeTrophyCard.SetActive(false);
+        TransparentBG.SetActive(false);
+        placementText.SetText("");
 
-        goldTrophyCard.GetComponent<SpriteRenderer>().color = new Color(191, 191, 191, 0);
+        setTransparency(goldTrophyCard, 0);
+        setTransparency(silverTrophyCard, 0);
+        setTransparency(bronzeTrophyCard, 0);
+        setTransparency(placementText, 0);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator DisplayFinalScoreElements(float correct, float questions, float goldReq, float silverReq)
     {
-        
-    }
+        TransparentBG.SetActive(true);
 
-    public IEnumerator DisplayFinalScoreElements(char placement)
-    {
+        float passingPercentage = ((correct) / questions) * 100; 
+
+        Debug.Log("Grade: " + passingPercentage);
+
+        char placement = 'b';
+
+        if (passingPercentage >= silverReq)
+        {
+            Debug.Log("Silver");
+            placement = 's';
+        }
+
+        if (passingPercentage >= goldReq)
+        {
+            Debug.Log("Gold");
+            placement = 'g';
+        }
+
+
         switch (placement)
         {
             case 'g':
                 StartCoroutine(IncreaseAlpha(goldTrophyCard));
-                goldTrophyCard.SetActive(true);
+                break;
+
+            case 's':
+                StartCoroutine(IncreaseAlpha(silverTrophyCard));
+                break;
+
+            case 'b':
+                StartCoroutine(IncreaseAlpha(bronzeTrophyCard));
                 break;
         }
+
+        StartCoroutine(ShowPlacement(placementText, correct, questions));
 
         yield break;
     }
 
-    IEnumerator IncreaseAlpha(GameObject go)
+    IEnumerator IncreaseAlpha(GameObject go, int max = 255)
     {
-
-        go.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, alpha);
-
+        go.SetActive(true);
+        Color tempColor;
+        tempColor = go.GetComponent<SpriteRenderer>().color;
+        tempColor.a = alpha;
+        go.GetComponent<SpriteRenderer>().color = tempColor;
 
         alpha += 0.0001f * FadeInSpeed;
 
-        if (alpha >= 255)
+        if (alpha >= max)
         {
             yield break;
         }
-            
-
+           
         yield return new WaitForEndOfFrame();
-        StartCoroutine(IncreaseAlpha(go));
+        StartCoroutine(IncreaseAlpha(go, max));
 
     }
 
-    //IEnumerator ShowPlacement()
-    //{
+    IEnumerator IncreaseAlpha(TMPro.TextMeshProUGUI go, int max = 255)
+    {
+        go.color = new Color(0, 0, 0, alpha);
 
-    //}
+        alpha += 0.0001f * FadeInSpeed;
+
+        if (alpha >= max)
+        {
+            yield break;
+        }
+
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(IncreaseAlpha(go, max));
+    }
+
+
+    void setTransparency(GameObject go, int val)
+    {
+        Color tempColor = go.GetComponent<SpriteRenderer>().color;
+        tempColor.a = val;
+        go.GetComponent<SpriteRenderer>().color = tempColor;
+    }
+
+    void setTransparency(TMPro.TextMeshProUGUI go, int val)
+    {
+        go.color = new Color(0, 0, 0, val);
+    }
+
+    IEnumerator ShowPlacement(TMPro.TextMeshProUGUI pt, float correct, float questions)
+    {
+        pt.text = correct + " / " + questions;
+        StartCoroutine(IncreaseAlpha(pt));
+        yield break;
+
+    }
 }
