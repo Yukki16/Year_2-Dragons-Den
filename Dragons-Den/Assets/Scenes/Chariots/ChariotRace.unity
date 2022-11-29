@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b7d8b4c67700146b5e94c5edbe6153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerChariot: {fileID: 0}
+  PlayerChariot: {fileID: 1043936834}
   QuestionBox: {fileID: 1941114893}
   AnswerBox1: {fileID: 1633323038}
   AnswerBox2: {fileID: 1085101660}
@@ -1299,8 +1299,6 @@ MonoBehaviour:
     - Pillars
     - Marble
     - Columns
-  GoldPassingPercentage: 90
-  SilverPassingPercentage: 70
 --- !u!4 &1436686325
 Transform:
   m_ObjectHideFlags: 0

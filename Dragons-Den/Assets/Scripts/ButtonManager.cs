@@ -38,9 +38,9 @@ public class ButtonManager : MonoBehaviour
 
     public Question[] Questions;
 
-    [SerializeField] float GoldPassingPercentage;
+    public static float GoldPassingPercentage = 90;
 
-    [SerializeField] float SilverPassingPercentage;
+    public static float SilverPassingPercentage = 70;
 
     private GameObject goldChariot;
     private GameObject silverChariot;
@@ -51,7 +51,7 @@ public class ButtonManager : MonoBehaviour
 
     public static int playerScore;
 
-    int index;
+    static int index;
 
     private Vector2 targetPosition;
 
@@ -119,10 +119,11 @@ public class ButtonManager : MonoBehaviour
 
     void NextQuestion()
     {
-        if (index == 7)
+        if (index == Questions.Length)
         {
             Debug.Log("Finish");
             SceneManager.LoadScene("ChariotPlacement", LoadSceneMode.Single);
+            return;
         }
 
 
@@ -189,13 +190,18 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    public int GetPlayerScore()
+    public static int GetPlayerScore()
     {
         return playerScore;
     }
 
-    public float GetPlayerAverage()
+    public static float GetPlayerAverage()
     {
+        if (playerScore == 0 && index == 0)
+        {
+            return 1;
+        }
+
         return (playerScore / index) * 100;
     }
 
