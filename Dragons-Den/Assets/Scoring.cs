@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scoring : MonoBehaviour
 {
 
+    [SerializeField] TMPro.TextMeshProUGUI AnswerBox2Text;
     [SerializeField] GameObject goldTrophyCard;
     [SerializeField] GameObject silverTrophyCard;
     [SerializeField] GameObject bronzeTrophyCard;
@@ -50,10 +52,18 @@ public class Scoring : MonoBehaviour
         alpha += 0.0001f * FadeInSpeed;
 
         if (alpha >= 255)
+        {
             yield break;
+        }
+            
 
         yield return new WaitForEndOfFrame();
         StartCoroutine(IncreaseAlpha(go));
+
+    }
+
+    IEnumerator ShowPlacement()
+    {
 
     }
 }
