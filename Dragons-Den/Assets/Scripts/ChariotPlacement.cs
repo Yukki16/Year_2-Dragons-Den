@@ -11,6 +11,9 @@ public class ChariotPlacement : MonoBehaviour
     [SerializeField] GameObject goldChariot;
     [SerializeField] GameObject finishLine;
 
+    [SerializeField] ParticleSystem particle1Mach;
+    [SerializeField] ParticleSystem particle2Mach;
+
     List<GameObject> chariots = new List<GameObject>();
 
     [SerializeField] float moveSpeed;
@@ -21,6 +24,9 @@ public class ChariotPlacement : MonoBehaviour
         chariots.Add(playerChariot);
         chariots.Add(silverChariot);
         chariots.Add(goldChariot);
+
+        particle1Mach.Pause();
+        particle2Mach.Pause();
     }
 
     private void FixedUpdate()
@@ -30,7 +36,9 @@ public class ChariotPlacement : MonoBehaviour
 
         if (playerChariot.transform.position.x > finishLine.transform.position.x)
         {
-                StartCoroutine(fs.GetComponent<Scoring>().DisplayFinalScoreElements((float)ButtonManager.GetPlayerScore(), (float)ButtonManager.GetQuestionCount(), ButtonManager.GoldPassingPercentage, ButtonManager.SilverPassingPercentage));       
+            particle1Mach.Play();
+            particle2Mach.Play();
+            StartCoroutine(fs.GetComponent<Scoring>().DisplayFinalScoreElements((float)ButtonManager.GetPlayerScore(), (float)ButtonManager.GetQuestionCount(), ButtonManager.GoldPassingPercentage, ButtonManager.SilverPassingPercentage));       
         }
     }
 
