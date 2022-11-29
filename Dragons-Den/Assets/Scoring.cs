@@ -8,6 +8,9 @@ public class Scoring : MonoBehaviour
 
     [SerializeField] TMPro.TextMeshProUGUI placementText;
 
+    [SerializeField] ParticleSystem particle1Mach;
+    [SerializeField] ParticleSystem particle2Mach;
+
     [SerializeField] GameObject TransparentBG;
 
     [SerializeField] GameObject goldTrophyCard;
@@ -31,6 +34,8 @@ public class Scoring : MonoBehaviour
         setTransparency(bronzeTrophyCard, 0);
         setTransparency(placementText, 0);
 
+        particle1Mach.Pause();
+        particle2Mach.Pause();
     }
 
     public IEnumerator DisplayFinalScoreElements(float correct, float questions, float goldReq, float silverReq)
@@ -60,10 +65,12 @@ public class Scoring : MonoBehaviour
         {
             case 'g':
                 StartCoroutine(IncreaseAlpha(goldTrophyCard));
+                particle1Mach.Play();
                 break;
 
             case 's':
                 StartCoroutine(IncreaseAlpha(silverTrophyCard));
+                particle1Mach.Play();
                 break;
 
             case 'b':
