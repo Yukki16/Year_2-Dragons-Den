@@ -62,8 +62,8 @@ public class Scoring : MonoBehaviour
 
     }
 
-    IEnumerator ShowPlacement()
-    {
+    //IEnumerator ShowPlacement()
+    //{
 
-    }
+    //}
 }
