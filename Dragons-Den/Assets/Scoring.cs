@@ -65,11 +65,13 @@ public class Scoring : MonoBehaviour
         {
             case 'g':
                 StartCoroutine(IncreaseAlpha(goldTrophyCard));
+                particle2Mach.Play();
                 particle1Mach.Play();
                 break;
 
             case 's':
                 StartCoroutine(IncreaseAlpha(silverTrophyCard));
+                particle2Mach.Play();
                 particle1Mach.Play();
                 break;
 

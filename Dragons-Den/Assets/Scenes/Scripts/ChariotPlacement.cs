@@ -16,6 +16,8 @@ public class ChariotPlacement : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float xPosDissapear;
 
+    private IEnumerator finalElements = null;
+
     private void Start()
     {
         chariots.Add(playerChariot);
@@ -30,7 +32,11 @@ public class ChariotPlacement : MonoBehaviour
 
         if (playerChariot.transform.position.x > finishLine.transform.position.x)
         {          
-            StartCoroutine(fs.GetComponent<Scoring>().DisplayFinalScoreElements((float)ButtonManager.GetPlayerScore(), (float)ButtonManager.GetQuestionCount(), ButtonManager.GoldPassingPercentage, ButtonManager.SilverPassingPercentage));       
+            if (finalElements == null)
+            {
+                finalElements = fs.GetComponent<Scoring>().DisplayFinalScoreElements((float)ButtonManager.GetPlayerScore(), (float)ButtonManager.GetQuestionCount(), ButtonManager.GoldPassingPercentage, ButtonManager.SilverPassingPercentage);
+                StartCoroutine(finalElements);
+            }
         }
     }
 

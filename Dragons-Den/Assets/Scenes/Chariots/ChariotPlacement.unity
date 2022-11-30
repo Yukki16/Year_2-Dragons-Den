@@ -10743,7 +10743,7 @@ MonoBehaviour:
   goldTrophyCard: {fileID: 1972400255}
   silverTrophyCard: {fileID: 2072088433}
   bronzeTrophyCard: {fileID: 1828501793}
-  FadeInSpeed: 2
+  FadeInSpeed: 50
 --- !u!1 &1828501793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2203642216719441389, guid: ee3c99ed95a0093488f83e0360acd423, type: 3}
