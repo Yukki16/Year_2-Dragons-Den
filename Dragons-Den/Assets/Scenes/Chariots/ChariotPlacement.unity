@@ -10033,11 +10033,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 534392646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd75072284e63664eb4991d6eb8b4f3b, type: 3}
+  m_Script: {fileID: 11500000, guid: f693c7cc3d79928479144850be73b74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  bgRenderer: {fileID: 534392648}
+  cam: {fileID: 1854798186}
+  parallaxEffect: 0
 --- !u!23 &534392648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10577,7 +10577,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1698508644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf04741d73b2e745b6d0e3ee1c0ae9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 728206f3986b36148afe9ad72598a699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fs: {fileID: 1802421413}
@@ -10585,8 +10585,8 @@ MonoBehaviour:
   silverChariot: {fileID: 693573271}
   goldChariot: {fileID: 1250615374}
   finishLine: {fileID: 1070924536}
-  moveSpeed: 0.15
-  xPosDissapear: 13
+  moveSpeed: 1
+  xPosDissapear: 10
 --- !u!4 &1698508646
 Transform:
   m_ObjectHideFlags: 0
