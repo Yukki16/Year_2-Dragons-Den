@@ -20,6 +20,9 @@ public class ChariotPlacement : MonoBehaviour
 
     private void Start()
     {
+        Screen.orientation = ScreenOrientation.LandscapeRight;
+
+
         chariots.Add(playerChariot);
         chariots.Add(silverChariot);
         chariots.Add(goldChariot);  

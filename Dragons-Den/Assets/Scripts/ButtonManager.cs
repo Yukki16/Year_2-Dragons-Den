@@ -65,6 +65,9 @@ public class ButtonManager : MonoBehaviour
     }
     void Start()
     {
+        Screen.orientation = ScreenOrientation.LandscapeRight;
+
+
         //Assign Gold and Silver chariots from array of opponent chariots
         for (int i = 0; i < opponentChariots.Length; i++)
         {
