@@ -644,7 +644,7 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 1, y: 1}
+      m_Size: {x: 0.08001, y: 0.08001}
     zGrid:
       m_Fade:
         m_Target: 1
@@ -700,8 +700,8 @@ MonoBehaviour:
   m_Script: {fileID: 13974, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Simulator
     m_Image: {fileID: 8720083202187608617, guid: 0000000000000000d000000000000000, type: 0}
