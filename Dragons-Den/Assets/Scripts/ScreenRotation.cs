@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class ScreenRotation : MonoBehaviour
 {
+    [SerializeField] ScreenOrientation screenOrientation;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Screen.orientation = screenOrientation;
     }
 
     // Update is called once per frame
@@ -17,10 +16,4 @@ public class LevelManager : MonoBehaviour
     {
         
     }
-
-    public void MoveToScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
 }
