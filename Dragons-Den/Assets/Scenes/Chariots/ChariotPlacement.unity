@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2203642216719441379, guid: ee3c99ed95a0093488f83e0360acd423, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2203642216719441379, guid: ee3c99ed95a0093488f83e0360acd423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -226,7 +226,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802421412}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &42471382
 SpriteRenderer:
@@ -339,7 +339,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -5090,7 +5090,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802421412}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!1 &271415860
 GameObject:
@@ -5151,7 +5151,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -9898,11 +9898,11 @@ Transform:
   m_GameObject: {fileID: 271415860}
   m_LocalRotation: {x: -0.0000020489094, y: 0.7071068, z: -0.7071068, w: 0.0000020489094}
   m_LocalPosition: {x: 1.966569, y: 6.533187, z: 0.04640439}
-  m_LocalScale: {x: 0.46083006, y: 0.46083, z: 0.46083}
+  m_LocalScale: {x: 0.46083036, y: 0.46083012, z: 0.46083012}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802421412}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!1 &482858971
 GameObject:
@@ -10127,7 +10127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693573271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: -1.14, z: 0}
+  m_LocalPosition: {x: -10.9, y: -3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10144,7 +10144,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2203642216719441379, guid: c9852bbb5a01012439628f0145824fb7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2203642216719441379, guid: c9852bbb5a01012439628f0145824fb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10316,7 +10316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250615374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.01, y: -0.24000001, z: 0}
+  m_LocalPosition: {x: -10.91, y: -2.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10543,7 +10543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623612518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.99, y: -2.77, z: 0}
+  m_LocalPosition: {x: -10.9, y: -3.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10627,7 +10627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784236165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.199, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10715,12 +10715,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 271415863}
   - {fileID: 1828501795}
   - {fileID: 2072088435}
   - {fileID: 1972400257}
   - {fileID: 42471381}
   - {fileID: 116894524}
+  - {fileID: 271415863}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10737,8 +10737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementText: {fileID: 1894986798}
-  particle1Mach: {fileID: 0}
-  particle2Mach: {fileID: 0}
+  particle1Mach: {fileID: 116894523}
+  particle2Mach: {fileID: 271415862}
   TransparentBG: {fileID: 42471380}
   goldTrophyCard: {fileID: 1972400255}
   silverTrophyCard: {fileID: 2072088433}
@@ -10881,7 +10881,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2203642216719441379, guid: afd592c3bab6a0244af12f1cdc4c862c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2203642216719441379, guid: afd592c3bab6a0244af12f1cdc4c862c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11173,7 +11173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074806519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
