@@ -36,6 +36,8 @@ public class ButtonManager : MonoBehaviour
 
     [SerializeField] GameObject[] opponentChariots;
 
+    [SerializeField] float ChariotSnapSpeed = 1;
+
     public Question[] Questions;
 
     public static int questionLength;
@@ -49,16 +51,20 @@ public class ButtonManager : MonoBehaviour
 
     private Question temp;
 
-    private int correctAnswer;
+    private int correctAnswer = 0;
 
-    public static int playerScore;
+    public static int playerScore = 0;
 
-    static int index;
+    static int index = 0;
 
     private Vector2 targetPosition;
 
     private void Awake()
     {
+        index = 0;
+        playerScore = 0;
+        correctAnswer = 0;
+
         QuestionBoxText = QuestionBox.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         AnswerBox1Text = AnswerBox1.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         AnswerBox2Text = AnswerBox2.GetComponentInChildren<TMPro.TextMeshProUGUI>();
@@ -66,7 +72,6 @@ public class ButtonManager : MonoBehaviour
     void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeRight;
-
 
         //Assign Gold and Silver chariots from array of opponent chariots
         for (int i = 0; i < opponentChariots.Length; i++)
@@ -102,7 +107,7 @@ public class ButtonManager : MonoBehaviour
         {
             goldOppStartPosition = goldChariot.transform.position;
         }
-        
+
         //SilverCharPos
         if (silverOppStartPosition != Vector2.zero)
         {
@@ -129,7 +134,7 @@ public class ButtonManager : MonoBehaviour
         {
             playerScore++;
             StartCoroutine(MoveChariots());
-            Debug.Log("Correct"); 
+            Debug.Log("Correct");
             NextQuestion();
         }
 
@@ -236,15 +241,28 @@ public class ButtonManager : MonoBehaviour
 
     IEnumerator MoveChariots()
     {
-        playerChariot.transform.position += new Vector3(playerMoveInterval, 0, 0);
+        StartCoroutine(MoveChariot(playerChariot, playerChariot.transform.position, playerMoveInterval));
         StartCoroutine(MoveOpponentChariots());
-        yield return new WaitForFixedUpdate();
+        yield break;
     }
 
     IEnumerator MoveOpponentChariots()
     {
-        goldChariot.transform.position += new Vector3(goldMoveInterval, 0, 0);
-        silverChariot.transform.position += new Vector3(silverMoveInterval, 0, 0);
-        yield return new WaitForEndOfFrame();
+     
+       StartCoroutine(MoveChariot(goldChariot, goldChariot.transform.position, goldMoveInterval));
+       StartCoroutine(MoveChariot(silverChariot, silverChariot.transform.position, silverMoveInterval));
+        yield break;
+    }
+
+    IEnumerator MoveChariot(GameObject c, Vector2 intl, float interval)
+    {
+        c.transform.position += new Vector3(0.001f * ChariotSnapSpeed, 0, 0);
+
+        if (c.transform.position.x < intl.x + interval)
+        {
+            yield return new WaitForEndOfFrame();
+            StartCoroutine(MoveChariot(c, intl, interval));
+        }
+        yield break;
     }
 }
