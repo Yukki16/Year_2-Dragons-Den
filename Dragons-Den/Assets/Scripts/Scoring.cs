@@ -22,13 +22,15 @@ public class Scoring : MonoBehaviour
     [SerializeField] GameObject silverTrophyCard;
     [SerializeField] GameObject bronzeTrophyCard;
 
-    [SerializeField] int FadeInSpeed = 1;
+    [SerializeField] int FadeInSpeed;
 
     private float alpha = 0;
 
     private bool canExit;
 
     private bool transitionToReward;
+
+    [SerializeField] private float rewardStarShootDuration;
 
     private void Awake()
     {
@@ -46,7 +48,6 @@ public class Scoring : MonoBehaviour
         setTransparency(goldTrophyCard, 0);
         setTransparency(silverTrophyCard, 0);
         setTransparency(bronzeTrophyCard, 0);
-        setTransparency(placementText, 0);
         particle1Mach.Pause();
         particle2Mach.Pause();
     }
@@ -55,18 +56,24 @@ public class Scoring : MonoBehaviour
     {
         if (canExit)
         {
+            Debug.Log("Marker");
             if (Input.anyKeyDown)
             {
+                Debug.Log("Marker2");
                 if (transitionToReward == true)
                 {
+                    Debug.Log("Marker3");
+
                     FinalScoreOverlay.SetActive(false);
                     ArtifactRewardOverlay.SetActive(true);
+                    StartCoroutine(StopRewardStars());
                     StartCoroutine(DelayTransition());
                 }
 
                 if (transitionToReward == false)
                 {
-                    Debug.Log("marker2");
+                    Debug.Log("Marker");
+
                     SceneManager.LoadScene("MainWalking", LoadSceneMode.Single);
                 }
                 
@@ -74,12 +81,19 @@ public class Scoring : MonoBehaviour
         }
     }
 
+    IEnumerator StopRewardStars()
+    {        Debug.Log("Marker");
+
+        yield return new WaitForSeconds(rewardStarShootDuration);
+        ArtifactRewardOverlay.GetComponentInChildren<ParticleSystem>().Stop();
+        Debug.Log("Marker2");
+        yield break;
+    }
+
     IEnumerator DelayTransition()
     {
-        Debug.Log("marker3");
         yield return new WaitForSeconds(0.5f);
         transitionToReward = false;
-        
     }
 
     public IEnumerator DisplayFinalScoreElements(float correct, float questions, float goldReq, float silverReq)
@@ -130,9 +144,9 @@ public class Scoring : MonoBehaviour
                 break;
         }
         continueText.gameObject.SetActive(true);
-        continueText.
         StartCoroutine(ShowPlacement(placementText, correct, questions));
-
+        //Allows the player to exit the game at this point
+        canExit = true;
         yield break;
     }
 
@@ -144,7 +158,7 @@ public class Scoring : MonoBehaviour
         tempColor.a = alpha;
         go.GetComponent<SpriteRenderer>().color = tempColor;
 
-        alpha += 0.0001f * FadeInSpeed;
+        alpha += (1f * FadeInSpeed) * Time.deltaTime;
 
         if (alpha >= max)
         {
@@ -160,17 +174,13 @@ public class Scoring : MonoBehaviour
     {
         go.color = new Color(0, 0, 0, alpha);
 
-        alpha += 0.0001f * FadeInSpeed;
+        alpha += (1f * FadeInSpeed) * Time.deltaTime;
 
         if (alpha >= max)
         {
 
             yield break;
         }
-
-
-        //Allows the player to exit the game at this point
-        canExit = true;
 
         yield return new WaitForEndOfFrame();
         StartCoroutine(IncreaseAlpha(go, max));
@@ -191,7 +201,6 @@ public class Scoring : MonoBehaviour
     IEnumerator ShowPlacement(TMPro.TextMeshProUGUI pt, float correct, float questions)
     {
         pt.text = correct + " / " + questions;
-        StartCoroutine(IncreaseAlpha(pt));
         yield break;
 
     }

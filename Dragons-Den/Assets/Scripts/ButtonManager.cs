@@ -256,7 +256,7 @@ public class ButtonManager : MonoBehaviour
 
     IEnumerator MoveChariot(GameObject c, Vector2 intl, float interval)
     {
-        c.transform.position += new Vector3(0.001f * ChariotSnapSpeed, 0, 0);
+        c.transform.position += new Vector3(0.001f * (ChariotSnapSpeed * 1000) * Time.deltaTime, 0, 0);
 
         if (c.transform.position.x < intl.x + interval)
         {

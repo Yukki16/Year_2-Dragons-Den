@@ -20,7 +20,7 @@ public class FadeText : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        text.alpha += 0.0001f * fadeSpeed;
+        text.alpha += (0.1f * fadeSpeed) * Time.deltaTime;
         if (text.alpha <= 1)
         {
             yield return new WaitForEndOfFrame();
@@ -36,7 +36,7 @@ public class FadeText : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        text.alpha -= 0.0001f * fadeSpeed;
+        text.alpha -= (0.1f * fadeSpeed) * Time.deltaTime;
         if (text.alpha >= bounceDist / 100)
         {
             yield return new WaitForEndOfFrame();
