@@ -4,9 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public struct Question
-{
+{ 
     public string DisplayQuesion;
     public string CorrectAnswer;
     public string[] WrongAnswers;
-
 }

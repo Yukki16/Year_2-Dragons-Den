@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
+    [SerializeField] private bool repeat;
     private float length, startPos;
     [SerializeField] GameObject cam;
     public float parallaxEffect;
@@ -11,6 +12,7 @@ public class Parallax : MonoBehaviour
     void Start()
     {
         startPos = transform.position.x;
+        if (repeat)
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
@@ -20,8 +22,12 @@ public class Parallax : MonoBehaviour
         float dist = (cam.transform.position.x * parallaxEffect);
         transform.position = new Vector3(startPos + dist, transform.position.y, transform.position.z);
 
-        if (temp > startPos + length - length) startPos += length;
-        else if (temp < startPos - length) startPos -= length;
+        if (repeat)
+        {
+            if (temp > startPos + length - length) startPos += length;
+            else if (temp < startPos - length) startPos -= length;
+        }
+    
 
     }
 }

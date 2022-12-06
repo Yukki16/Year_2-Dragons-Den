@@ -7,6 +7,8 @@ using UnityEngine;
 public class ChariotRaceManager : MonoBehaviour
 {
 
+    [SerializeField] AudioManager AudioManager;
+
     [SerializeField] GameObject PlayerChariot;
 
     private SpriteRenderer sq;
@@ -148,6 +150,7 @@ public class ChariotRaceManager : MonoBehaviour
 
     void NextQuestion()
     {
+
         if (index == Questions.Length)
         {
             Debug.Log("Finish");
@@ -169,6 +172,9 @@ public class ChariotRaceManager : MonoBehaviour
             AnswerBox2Text.text = Questions[index].CorrectAnswer;
             AnswerBox1Text.text = Questions[index].WrongAnswers[Random.Range(0, Questions[index].WrongAnswers.Length)];
         }
+
+        AudioManager.Play((QuestionBoxText.text).ToString());
+
         index++;
     }
 
@@ -177,14 +183,11 @@ public class ChariotRaceManager : MonoBehaviour
     {
         if (correctAnswer == 1)
         {
-            playerScore++;
-            StartCoroutine(MoveChariots());
-            Debug.Log("Correct");
+            StartCoroutine(CorrectAnswer());
         }
         else
         {
-            StartCoroutine(MoveOpponentChariots());
-            Debug.Log("Incorrect");
+            StartCoroutine(WrongAnswer());
         }
 
         NextQuestion();
@@ -195,14 +198,11 @@ public class ChariotRaceManager : MonoBehaviour
     {
         if (correctAnswer == 2)
         {
-            playerScore++;
-            StartCoroutine(MoveChariots());
-            Debug.Log("Correct");
+            StartCoroutine(CorrectAnswer());
         }
         else
         {
-            StartCoroutine(MoveOpponentChariots());
-            Debug.Log("Incorrect");
+            StartCoroutine(WrongAnswer());
         }
 
         NextQuestion();
@@ -237,6 +237,20 @@ public class ChariotRaceManager : MonoBehaviour
     public static int GetQuestionCount()
     {
         return questionLength;
+    }
+
+    IEnumerator CorrectAnswer()
+    {
+        playerScore++;
+        StartCoroutine(MoveChariots());
+        AudioManager.Play("CorrectAnswer");
+        yield break;
+    }
+    IEnumerator WrongAnswer()
+    {
+        StartCoroutine(MoveOpponentChariots());
+        AudioManager.Play("WrongAnswer");
+        yield break;
     }
 
     IEnumerator MoveChariots()
