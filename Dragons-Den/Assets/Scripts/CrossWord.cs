@@ -10,20 +10,23 @@ public class CrossWord : MonoBehaviour
 {
     [SerializeField] Camera cam;
 
+    [SerializeField] Image imageToShow;
+    [SerializeField] Sprite[] sprites;
+
+    [SerializeField] TMP_Text text;
+    [SerializeField] string[] textToFill;
+
     public char[,] letters;
     [SerializeField] public List<string> wordsToFind;
     [SerializeField] GameObject canvasObjectParent;
     [SerializeField] Sprite letterBackground;
 
-
-    Rect[] boxes;
-
     public GameObject[] lines;
     public LineRenderer lineRenderer;
     public bool doneOnce;
     public int lineIndex = 0;
-    public string foundWord;
-    public string RfoundWord;
+    public string foundWord = string.Empty;
+    public string RfoundWord = string.Empty;
     public bool wordFound;
     
     bool drawLine;
@@ -55,9 +58,6 @@ public class CrossWord : MonoBehaviour
     private void CreateCross(int _gameLenght)
     {
         gameLenght = _gameLenght;
-        crossStart = new Vector2(transform.position.x + 300, transform.position.y + 100);
-        crossEnd = new Vector2(transform.position.x + 300 + gameLenght * boxSizeX, transform.position.y + 100 + gameLenght * boxSizeY);
-        boxes = new Rect[gameLenght * gameLenght];
 
         Debug.Log("Lenght: " + _gameLenght);
         letters = new char[_gameLenght, _gameLenght];
@@ -81,14 +81,15 @@ public class CrossWord : MonoBehaviour
             {
                 DirectionOfWord(_gameLenght, ref x, ref y, ref direction, i);
                 counter++;
-                if (counter > 10)
+                if (counter > 15)
                 {
                     throw new System.Exception("No space for the word!");
                 }
             }
             AddWordToPuzzle(direction, x, y, i);
         }
-        for (int i = 0; i < gameLenght; i++)
+
+                for (int i = 0; i < gameLenght; i++)
         {
             for (int j = 0; j < gameLenght; j++)
             {
@@ -97,9 +98,7 @@ public class CrossWord : MonoBehaviour
                     var gameObject = new GameObject("Letter");
                     gameObject.transform.parent = canvasObjectParent.transform;
 
-                    //*******************************************
-                    //Adding box collider
-                    gameObject.AddComponent<BoxCollider2D>();
+                   
                     //********************************************
                     //Adding events
                     gameObject.AddComponent<ImageEvents>().crossWord = this;
@@ -110,10 +109,10 @@ public class CrossWord : MonoBehaviour
                     //The Image child
                     Image image = gameObject.AddComponent<Image>();
                     image.sprite = letterBackground;
-                    Vector2 newPos = new Vector2(gameObject.transform.parent.position.x + boxSizeX / 100.0f * i, gameObject.transform.parent.position.y - boxSizeY / 100.0f * j);
+                    Vector2 newPos = new Vector2(gameObject.transform.parent.position.x + boxSizeX / 125.0f * i, gameObject.transform.parent.position.y - boxSizeY / 125.0f * j);
                     gameObject.transform.position = newPos;
 
-                    image.transform.localScale = new Vector2(boxSizeX / 100.0f, boxSizeY / 100.0f);
+                    image.transform.localScale = new Vector2(boxSizeX / 88.0f, boxSizeY / 88.0f);
 
 
                     //*************************************************
@@ -131,6 +130,11 @@ public class CrossWord : MonoBehaviour
                     text.fontSizeMax = 130;
                     text.alignment = TextAlignmentOptions.Center;
                     text.color = Color.white;
+
+                    if(letters[i,j] == '-')
+                    {
+                        letters[i, j] = (char)(int)Random.Range(65, 91);
+                    }
                     text.text = letters[i, j].ToString();
 
 
@@ -165,54 +169,7 @@ public class CrossWord : MonoBehaviour
     }
     //Get position of it, check wherther is in order or not, ignore or add to an array
    
-    private void Update()
-    {
-        if (!finishedBuilding)
-        {
-            return;
-        }
-
-
-        /*if(Enumerable.Range((int)crossStart.x, (int)crossEnd.x).Contains((int)Input.mousePosition.x) 
-            && Enumerable.Range((int)crossStart.y, (int)crossEnd.y).Contains((int)Input.mousePosition.y))
-        {*/
-        
-        
-            if (Input.GetMouseButtonDown(0))
-            {
-                
-            }
-        
-
-        /*if (drawLine && lineRenderer != null)
-        {
-            lineRenderer.SetPosition(1, Input.mousePosition);
-            if (Input.GetMouseButtonUp(0))
-            {
-                for (int i = 0; i < boxes.Length; i++)
-                {
-                    if (boxes[i].Contains(Input.mousePosition))
-                    {
-                        doneOnce = true;
-                        lineRenderer.SetPosition(1, cam.ScreenToWorldPoint(boxes[i].center));
-                        LBEindex = i;
-                    }
-                }
-
-                if (!doneOnce)
-                {
-                    lineIndex--;
-                    lineRenderer = null;
-                    Destroy(lines[lineIndex]);
-                }
-                else
-                {
-
-                }
-                drawLine = false;
-            }
-        }*/
-    }
+    
     private void AddWordToPuzzle(int direction, int x, int y, int i)
     {
         switch (direction)
@@ -316,17 +273,9 @@ public class CrossWord : MonoBehaviour
         }
     }
 
-    private int LongestWordLenght()
+    public void ShowInfo(int index)
     {
-        int wLenght = 0;
-
-        for (int i = 0; i < wordsToFind.Count; i++)
-        {
-            if (wordsToFind[i].Length > wLenght)
-            {
-                wLenght = wordsToFind[i].Length;
-            }
-        }
-        return wLenght;
+        imageToShow.sprite = sprites[index];
+        text.text = textToFill[index];
     }
 }
