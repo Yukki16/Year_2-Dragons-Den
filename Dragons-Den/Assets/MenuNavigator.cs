@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuNavigator : MonoBehaviour
 {
+
     public void LoadRome()
     {
         SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
