@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ArtifactTracker : MonoBehaviour
 {
+
+
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
