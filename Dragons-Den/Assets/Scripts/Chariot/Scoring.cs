@@ -134,6 +134,7 @@ public class Scoring : MonoBehaviour
                 break;
 
             case 's':
+                StartCoroutine(DoBetter());
                 StartCoroutine(IncreaseAlpha(silverTrophyCard));
                 particle2Mach.Play();
                 particle1Mach.Play();
@@ -141,6 +142,7 @@ public class Scoring : MonoBehaviour
                 break;
 
             case 'b':
+                StartCoroutine(DoBetter());
                 StartCoroutine(IncreaseAlpha(bronzeTrophyCard));
                 am.Play("Bronze");
                 break;
@@ -154,6 +156,13 @@ public class Scoring : MonoBehaviour
         StartCoroutine(ShowPlacement(placementText, correct, questions));
         //Allows the player to exit the game at this point
         canExit = true;
+        yield break;
+    }
+
+    IEnumerator DoBetter()
+    {
+        yield return new WaitForSeconds(4);
+        am.Play("Jolly");
         yield break;
     }
 
@@ -174,7 +183,6 @@ public class Scoring : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
         StartCoroutine(IncreaseAlpha(go, max));
-
     }
 
     IEnumerator IncreaseAlpha(TMPro.TextMeshProUGUI go, int max = 255)
