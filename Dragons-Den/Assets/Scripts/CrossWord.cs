@@ -3,43 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.EventSystems;
 
 public class CrossWord : MonoBehaviour
 {
     [SerializeField] Camera cam;
 
-    char[,] letters;
-    [SerializeField] List<string> wordsToFind;
-    [SerializeField] GUIStyle style;
+    public char[,] letters;
+    [SerializeField] public List<string> wordsToFind;
+    [SerializeField] GameObject canvasObjectParent;
+    [SerializeField] Sprite letterBackground;
+
+
     Rect[] boxes;
 
-    GameObject[] lines;
-    LineRenderer lineRenderer;
+    public GameObject[] lines;
+    public LineRenderer lineRenderer;
+    public bool doneOnce;
+    public int lineIndex = 0;
+    public string foundWord;
+    public string RfoundWord;
+    public bool wordFound;
+    
     bool drawLine;
-    bool inRect;
 
     bool finishedBuilding;
     int gameLenght;
     int boxSizeX;
     int boxSizeY;
 
-    Vector2 crossStart;
-    Vector2 crossEnd;
+    public Vector2 crossStart;
+    public Vector2 crossEnd;
 
     int boxIndex = 0;
-    int lineIndex = 0;
-
-    int LBSindex = 0;
-    int LBEindex = 0;
 
     private void Start()
     {
         //background = new Texture2D(imageBackground);
-        boxSizeX = (int)(2.5f * Screen.width) / 100;
-        boxSizeY = (int)(4.5f * Screen.height) / 100;
+        boxSizeX = (int)(2f * Screen.width) / 100;
+        boxSizeY = (int)(4f * Screen.height) / 100;
 
         lines = new GameObject[wordsToFind.Count];
-        
+
         Debug.Log("box size X: " + boxSizeX);
         Debug.Log("box size Y: " + boxSizeY);
         CreateCross(16);
@@ -82,77 +88,121 @@ public class CrossWord : MonoBehaviour
             }
             AddWordToPuzzle(direction, x, y, i);
         }
-        finishedBuilding = true;
-    }
-
-    private void OnGUI()
-    {
-        if (!finishedBuilding)
-        {
-            return;
-        }
-
         for (int i = 0; i < gameLenght; i++)
         {
             for (int j = 0; j < gameLenght; j++)
             {
                 if (boxIndex < gameLenght * gameLenght)
                 {
-                    var rect = new Rect(transform.position.x + 300 + boxSizeX * i, transform.position.y + 100 + boxSizeY * j, boxSizeX, boxSizeY);
-                    boxes[boxIndex] = rect;
-                    //Debug.Log(boxIndex);
+                    var gameObject = new GameObject("Letter");
+                    gameObject.transform.parent = canvasObjectParent.transform;
+
+                    //*******************************************
+                    //Adding box collider
+                    gameObject.AddComponent<BoxCollider2D>();
+                    //********************************************
+                    //Adding events
+                    gameObject.AddComponent<ImageEvents>().crossWord = this;
+                    gameObject.GetComponent<ImageEvents>().cam = this.cam;
+                    gameObject.GetComponent<ImageEvents>().positionInArray = new Vector2(i, j);
+
+                    //***********************************************
+                    //The Image child
+                    Image image = gameObject.AddComponent<Image>();
+                    image.sprite = letterBackground;
+                    Vector2 newPos = new Vector2(gameObject.transform.parent.position.x + boxSizeX / 100.0f * i, gameObject.transform.parent.position.y - boxSizeY / 100.0f * j);
+                    gameObject.transform.position = newPos;
+
+                    image.transform.localScale = new Vector2(boxSizeX / 100.0f, boxSizeY / 100.0f);
+
+
+                    //*************************************************
+                    //The text child
+                    var textObject = new GameObject("Text");
+                    textObject.transform.parent = gameObject.transform;
+                    textObject.transform.position = textObject.transform.parent.position;
+                    textObject.transform.localScale = Vector2.one;
+
+
+                    var text = textObject.AddComponent<TextMeshProUGUI>();
+                    //text.autoSizeTextContainer = true;
+                    text.enableAutoSizing = true;
+                    text.fontSizeMin = 12;
+                    text.fontSizeMax = 130;
+                    text.alignment = TextAlignmentOptions.Center;
+                    text.color = Color.white;
+                    text.text = letters[i, j].ToString();
+
+
+                    text.margin = new Vector4(50, -25, 50, -25);
+                    //*****************************************************
                     boxIndex++;
                 }
 
-                GUI.Box(boxes[i * gameLenght + j], letters[i, j].ToString(), style);
+                //GUI.Box(boxes[i * gameLenght + j], letters[i, j].ToString(), style);
             }
         }
-
-        if(Enumerable.Range((int)crossStart.x, (int)crossEnd.x).Contains((int)Input.mousePosition.x) 
-            && Enumerable.Range((int)crossStart.y, (int)crossEnd.y).Contains((int)Input.mousePosition.y))
-        {
-            if(Input.GetMouseButtonDown(0) && !drawLine)
-            {
-                drawLine = true;
-                for (int i = 0; i < boxes.Length; i++)
-                {
-                    if (boxes[i].Contains(Input.mousePosition))
-                    {
-                        LBSindex = i;
-                        lines[lineIndex] = new GameObject();
-                        lineRenderer = lines[lineIndex].AddComponent<LineRenderer>();
-                        lineRenderer.positionCount = 2;
-                        lineRenderer.SetPosition(0, cam.ScreenToWorldPoint(boxes[i].center));
-                        lineIndex++;
-                        break;
-                    }
-                }
-            }
-        }
-
-
+        finishedBuilding = true;
     }
 
+    public void DrawLine(Transform imageTransform)
+    {
+        Debug.Log("DrawingLine");
+        drawLine = true;
+        lines[lineIndex] = new GameObject("line" + lineIndex);
+        lineRenderer = lines[lineIndex].AddComponent<LineRenderer>();
+        lineRenderer.sharedMaterial = new Material(Shader.Find("Particles/Standard Unlit"));
+
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+
+        lineRenderer.startColor = Color.red;
+        lineRenderer.endColor = Color.red;
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, new Vector3());
+        lineIndex++;
+    }
+    //Get position of it, check wherther is in order or not, ignore or add to an array
+   
     private void Update()
     {
-        while(drawLine && lineRenderer != null && Input.GetMouseButtonUp(0))
-        { 
+        if (!finishedBuilding)
+        {
+            return;
+        }
+
+
+        /*if(Enumerable.Range((int)crossStart.x, (int)crossEnd.x).Contains((int)Input.mousePosition.x) 
+            && Enumerable.Range((int)crossStart.y, (int)crossEnd.y).Contains((int)Input.mousePosition.y))
+        {*/
+        
+        
+            if (Input.GetMouseButtonDown(0))
+            {
+                
+            }
+        
+
+        /*if (drawLine && lineRenderer != null)
+        {
             lineRenderer.SetPosition(1, Input.mousePosition);
-            /*if(Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 for (int i = 0; i < boxes.Length; i++)
                 {
                     if (boxes[i].Contains(Input.mousePosition))
                     {
-                        inRect = true;
+                        doneOnce = true;
                         lineRenderer.SetPosition(1, cam.ScreenToWorldPoint(boxes[i].center));
                         LBEindex = i;
                     }
                 }
 
-                if(!inRect)
+                if (!doneOnce)
                 {
                     lineIndex--;
+                    lineRenderer = null;
                     Destroy(lines[lineIndex]);
                 }
                 else
@@ -160,8 +210,8 @@ public class CrossWord : MonoBehaviour
 
                 }
                 drawLine = false;
-            }*/
-        }
+            }
+        }*/
     }
     private void AddWordToPuzzle(int direction, int x, int y, int i)
     {
