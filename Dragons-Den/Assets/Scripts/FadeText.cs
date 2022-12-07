@@ -9,16 +9,27 @@ public class FadeText : MonoBehaviour
     [SerializeField] private float fadeSpeed;
     [SerializeField] private float bounceDist;
 
+    IEnumerator runRoutine;
+
     void Start()
     {
+        
         if (text == null)
             text = GetComponent<TMPro.TextMeshProUGUI>();
-
-        text.alpha = 0;
-        StartCoroutine(FadeIn());
+        
+            text.alpha = 0;
     }
 
-    IEnumerator FadeIn()
+    private void Update()
+    {
+        if (runRoutine == null)
+        {
+            runRoutine = FadeIn();
+            StartCoroutine(runRoutine);
+        }
+    }
+
+    public IEnumerator FadeIn()
     {
         text.alpha += (0.1f * fadeSpeed) * Time.deltaTime;
         if (text.alpha <= 1)
@@ -34,7 +45,7 @@ public class FadeText : MonoBehaviour
         }         
     }
 
-    IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         text.alpha -= (0.1f * fadeSpeed) * Time.deltaTime;
         if (text.alpha >= bounceDist / 100)
@@ -47,5 +58,12 @@ public class FadeText : MonoBehaviour
             StartCoroutine(FadeIn());
             yield break;
         }
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("hello");
+        text.alpha = 0;
+       runRoutine = null;
     }
 }

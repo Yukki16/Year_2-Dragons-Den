@@ -75,6 +75,8 @@ public class ChariotRaceManager : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeRight;
 
+        AudioManager.LoopSound("RaceMusic");
+
         //Assign Gold and Silver chariots from array of opponent chariots
         for (int i = 0; i < opponentChariots.Length; i++)
         {
@@ -132,6 +134,8 @@ public class ChariotRaceManager : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (Input.GetKeyUp(KeyCode.N))
         {
             playerScore++;
@@ -182,6 +186,9 @@ public class ChariotRaceManager : MonoBehaviour
     //Activated through button 1
     public void ActivateButton1()
     {
+        if (index > Questions.Length)
+            return;
+
         if (correctAnswer == 1)
         {
             StartCoroutine(CorrectAnswer());
@@ -197,6 +204,9 @@ public class ChariotRaceManager : MonoBehaviour
     //Activated through button 2    
     public void ActivateButton2()
     {
+        if (index > Questions.Length)
+            return;
+
         if (correctAnswer == 2)
         {
             StartCoroutine(CorrectAnswer());

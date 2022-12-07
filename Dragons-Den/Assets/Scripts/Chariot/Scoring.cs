@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Scoring : MonoBehaviour
 {
 
+    [SerializeField] AudioManager am;
+
     [SerializeField] GameObject ArtifactRewardOverlay;
     [SerializeField] GameObject FinalScoreOverlay;
 
@@ -56,14 +58,10 @@ public class Scoring : MonoBehaviour
     {
         if (canExit)
         {
-            Debug.Log("Marker");
             if (Input.anyKeyDown)
             {
-                Debug.Log("Marker2");
                 if (transitionToReward == true)
                 {
-                    Debug.Log("Marker3");
-
                     FinalScoreOverlay.SetActive(false);
                     ArtifactRewardOverlay.SetActive(true);
                     StartCoroutine(StopRewardStars());
@@ -82,8 +80,7 @@ public class Scoring : MonoBehaviour
     }
 
     IEnumerator StopRewardStars()
-    {        Debug.Log("Marker");
-
+    {
         yield return new WaitForSeconds(rewardStarShootDuration);
         ArtifactRewardOverlay.GetComponentInChildren<ParticleSystem>().Stop();
         Debug.Log("Marker2");
@@ -131,17 +128,25 @@ public class Scoring : MonoBehaviour
                 StartCoroutine(IncreaseAlpha(goldTrophyCard));
                 particle2Mach.Play();
                 particle1Mach.Play();
+                am.Play("Gold");
                 break;
 
             case 's':
                 StartCoroutine(IncreaseAlpha(silverTrophyCard));
                 particle2Mach.Play();
                 particle1Mach.Play();
+                am.Play("Silver");
                 break;
 
             case 'b':
                 StartCoroutine(IncreaseAlpha(bronzeTrophyCard));
+                am.Play("Bronze");
                 break;
+
+            default:
+                am.Play("Gold");
+                break;
+
         }
         continueText.gameObject.SetActive(true);
         StartCoroutine(ShowPlacement(placementText, correct, questions));

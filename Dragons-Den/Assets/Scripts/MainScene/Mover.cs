@@ -16,6 +16,7 @@ public class Mover : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     private bool canWalk = false;
+    private bool lockMovement;
 
     private Vector2 velocity;
 
@@ -47,6 +48,9 @@ public class Mover : MonoBehaviour
             }
         }
 
+        if (lockMovement)
+            return;
+
         if (moveInputX != 0)
         {   
             velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInputX, walkAcceleration * Time.deltaTime);
@@ -71,5 +75,10 @@ public class Mover : MonoBehaviour
         }
 
         transform.Translate(velocity * Time.deltaTime); 
+    }
+
+    public void LockMovement(bool condition)
+    {
+        lockMovement = condition;
     }
 }

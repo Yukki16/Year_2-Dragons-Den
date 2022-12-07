@@ -19,6 +19,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void LoopSound(string name)
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.name == name)
+            {
+                s.source.loop = true;
+            }
+        }
+    }
+
     public void StopSound(string name)
     {
         foreach (Sound s in sounds)
