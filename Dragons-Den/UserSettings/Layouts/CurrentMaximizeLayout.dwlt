@@ -24,11 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-<<<<<<< HEAD
-  controlID: 95
-=======
-  controlID: 61
->>>>>>> Ruben_New
+  controlID: 93561
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -37,24 +33,6 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-<<<<<<< HEAD
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 13974, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 10000, y: 10000}
-  m_TitleContent:
-    m_Text: Simulator
-    m_Image: {fileID: 8720083202187608617, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 348
-    y: 73
-    width: 1118
-    height: 658
-=======
   m_EditorHideFlags: 1
   m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -71,44 +49,10 @@ MonoBehaviour:
     y: 73
     width: 1102
     height: 564
->>>>>>> Ruben_New
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-<<<<<<< HEAD
-  m_SerializedViewNames:
-  - UnityEditor.GameView
-  m_SerializedViewValues:
-  - C:\Users\bolde\Documents\GitKraken\Year_2-Dragons-Den\Dragons-Den\Library\PlayModeViewStates\26cd6259e7147b84c85cdd7304859018
-  m_PlayModeViewName: Device Simulator
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TargetSize: {x: 2778, y: 1284}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 2
-  m_UseMipMap: 0
-  m_SimulatorState:
-    controlPanelVisible: 0
-    controlPanelWidth: 0
-    controlPanelFoldoutKeys:
-    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
-    controlPanelFoldoutValues: 00
-    pluginNames:
-    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
-    pluginStates:
-    - '{}'
-    scale: 38
-    fitToScreenEnabled: 1
-    rotationDegree: 270
-    highlightSafeAreaEnabled: 0
-    friendlyName: Apple iPhone 12 Pro Max
-    networkReachability: 1
-    systemLanguage: 10
-=======
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
@@ -139,10 +83,10 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 1
-    m_VSlider: 1
+    m_HSlider: 0
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -153,18 +97,18 @@ MonoBehaviour:
       y: 21
       width: 1102
       height: 543
-    m_Scale: {x: 1.1592739, y: 1.1592739}
-    m_Translation: {x: 559.3496, y: 249.91838}
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 551, y: 271.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -482.49997
-      y: -215.58183
-      width: 950.59503
-      height: 468.39667
+      x: -551
+      y: -271.5
+      width: 1102
+      height: 543
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1102, y: 564}
@@ -173,7 +117,6 @@ MonoBehaviour:
   m_LowResolutionForAspectRatios: 01000001000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
->>>>>>> Ruben_New
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,21 +136,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1468
-    height: 947
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 16192, y: 16192}
-  vertical: 1
-  controlID: 96
-=======
     width: 1466
     height: 987
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 62
->>>>>>> Ruben_New
+  controlID: 93562
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -227,21 +161,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1468
-    height: 679
-  m_MinSize: {x: 200, y: 100}
-  m_MaxSize: {x: 16192, y: 8096}
-  vertical: 0
-  controlID: 97
-=======
     width: 1466
     height: 585
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 63
->>>>>>> Ruben_New
+  controlID: 93563
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,17 +184,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 348
-    height: 679
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-=======
     width: 362
     height: 585
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
->>>>>>> Ruben_New
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -297,13 +215,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-<<<<<<< HEAD
-    width: 347
-    height: 658
-=======
     width: 361
     height: 564
->>>>>>> Ruben_New
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -311,29 +224,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-<<<<<<< HEAD
-      m_SelectedIDs: 
+      m_SelectedIDs: 9e870000
       m_LastClickedID: 0
-      m_ExpandedIDs: 821dfeff24fbffff26fbffff486e0000
-=======
-      m_SelectedIDs: 526601007666010016660100
-      m_LastClickedID: 91670
-      m_ExpandedIDs: b65ffcffeccbfcffaaccfcffa8d2fcff38d6fcff1ee7fcffe2f2fcfffaf3fcffa0f4fcff54f5fcfff6f5fcff46f7fcff4af8fcff18fafcffbefafcffb2fbfcff74fcfcff28fefcff10fffcffb4fffcff0202fdffa002fdff9803fdff3c04fdff5005fdffe807fdff6a0bfdff520efdff3610fdff3824fdffde24fdffb226fdffe62cfdffa072fdff729cfeffa4a6feff26f7ffff26fbffff566e0000ce6e0000426f0000846f00009e5a0100b45a0100166601005266010076660100
->>>>>>> Ruben_New
+      m_ExpandedIDs: c45afbffa25bfbffe25cfbff8a5dfbff965ffbffe260fbffe461fbffe263fbff2079fbff2479fbff2679fbfff479fbffce7afbff927bfbff0e7dfbffba7efbffee7ffbffe480fbffa489fbffae89fbffb289fbffb489fbff708afbff708bfbff4a8cfbff028dfbff0c8efbffea97fbffb698fbffa899fbffb49afbff6e9bfbff469cfbff0a9dfbffea9dfbff929efbff0ca0fbffa8a6fbffaea6fbffb0a6fbff64abfbff2cacfbff0aadfbffc4adfbff12b5fbfff8b5fbff2cd5fbffd0d5fbff5ad7fbff12d8fbffc0dbfbffb2dcfbff02defbff32e9fbff74edfbff04eefbffceeefbff60f6fbffb2fcfbff7cfdfbff10fefbff6e01fcff5802fcff7a03fcff6c04fcffee04fcffd805fcff5c06fcff6e0dfcff6012fcff2423fcffe023fcffde24fcff9425fcff8a29fcff9440fcff4641fcff1c42fcffb65ffcffeccbfcffaaccfcffa8d2fcff38d6fcff1ee7fcffe2f2fcfffaf3fcffa0f4fcff54f5fcfff6f5fcff46f7fcff4af8fcff18fafcffbefafcffb2fbfcff74fcfcff28fefcff10fffcffb4fffcff0202fdffa002fdff9803fdff3c04fdff5005fdffe807fdff6a0bfdff520efdff3610fdff3824fdffde24fdffb226fdffe62cfdffa072fdff729cfeffa4a6feff26f7ffff26fbffff566e0000ce6e0000426f0000846f00009e5a0100b45a01001666010052660100766601006877010072870100d0a9010002ab0100bcc3010004c401001cc4010070c40100a8c90100b2c90100dac9010056d801006ed9010088d9010018da010056e301007ce301005eea0100a6ea0100beea010012eb0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: PlayerChariot
-        m_OriginalName: PlayerChariot
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 88784
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -353,30 +260,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
-  m_Name: SimulatorWindow
-=======
   m_Name: GameView
->>>>>>> Ruben_New
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 348
-    y: 0
-    width: 1120
-    height: 679
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 10002, y: 10021}
-=======
     x: 362
     y: 0
     width: 1104
     height: 585
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
->>>>>>> Ruben_New
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -403,17 +297,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 348
-    y: 73
-    width: 1118
-    height: 658
-=======
     x: 362
     y: 73
     width: 1102
     height: 564
->>>>>>> Ruben_New
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -637,15 +524,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< HEAD
-    m_Target: {x: -2.7271242, y: 1.771045, z: -0.034264386}
+    m_Target: {x: 0.4131834, y: 0.57923084, z: 0.03459241}
     speed: 2
-    m_Value: {x: -2.7271242, y: 1.771045, z: -0.034264386}
-=======
-    m_Target: {x: -4.2579927, y: -2.786924, z: 0.22392122}
-    speed: 2
-    m_Value: {x: -4.248774, y: -2.804439, z: 0.22330129}
->>>>>>> Ruben_New
+    m_Value: {x: 0.4131834, y: 0.57923084, z: 0.03459241}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -696,15 +577,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-<<<<<<< HEAD
-    m_Target: 3.8679824
+    m_Target: 6.5407677
     speed: 2
-    m_Value: 3.8679824
-=======
-    m_Target: 1.3156688
-    speed: 2
-    m_Value: 1.3776637
->>>>>>> Ruben_New
+    m_Value: 6.5407677
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -745,19 +620,6 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 679
-    width: 1468
-    height: 268
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 11}
-  m_Panes:
-  - {fileID: 10}
-  - {fileID: 11}
-  m_Selected: 1
-  m_LastSelected: 0
-=======
     y: 585
     width: 1466
     height: 402
@@ -769,8 +631,7 @@ MonoBehaviour:
   - {fileID: 11}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 2
->>>>>>> Ruben_New
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -792,15 +653,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 752
-    width: 1467
-    height: 247
-=======
     y: 658
     width: 1465
     height: 381
->>>>>>> Ruben_New
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -818,28 +673,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Areas/Chariots
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 68
   m_LastFolders:
-  - Assets/Areas/Chariots
+  - Assets/Scenes
   m_LastFoldersGridSize: 68
   m_LastProjectPath: C:\Users\ruben\Documents\GitHub\Year_2-Dragons-Den\Dragons-Den
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-<<<<<<< HEAD
-    m_SelectedIDs: cc700000
-    m_LastClickedID: 28876
-    m_ExpandedIDs: 00000000b4700000b6700000b8700000
-=======
-    m_SelectedIDs: a6720000
-    m_LastClickedID: 29350
-    m_ExpandedIDs: 0000000060720000627200006472000066720000687200006a7200006c7200006e72000070720000767200007c7200007e72000080720000
->>>>>>> Ruben_New
+    m_SelectedIDs: 70720000
+    m_LastClickedID: 29296
+    m_ExpandedIDs: 0000000060720000627200006472000066720000687200006a7200006c7200006e7200007072000076720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -867,11 +716,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< HEAD
-    m_ExpandedIDs: 00000000b4700000b6700000b8700000
-=======
-    m_ExpandedIDs: 0000000060720000627200006472000066720000687200006a7200006c7200006e72000070720000
->>>>>>> Ruben_New
+    m_ExpandedIDs: 0000000060720000627200006472000066720000687200006a7200006c7200006e72000070720000767200007c72000080720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -896,17 +741,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-<<<<<<< HEAD
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000fe6e0000069100000e9b0000348c0000527e00005c8c0000308c0000646c00005c7c0000388a0000e09c0000c670000040710000447100004e700000000000006071000008710000d8700000c4700000
-=======
-    m_SelectedInstanceIDs: 526601007666010016660100
-    m_LastClickedInstanceID: 91730
+    m_SelectedInstanceIDs: 9e870000
+    m_LastClickedInstanceID: 34718
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000146f0000
->>>>>>> Ruben_New
+    m_ExpandedInstanceIDs: c6230000146f000000920000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -955,15 +793,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 752
-    width: 1467
-    height: 247
-=======
     y: 658
     width: 1465
     height: 381
->>>>>>> Ruben_New
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1000,14 +832,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 4755568483884494679, guid: a777aa47f7fbabb45875dd090943dba0, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.38957602
+    - e00: 1
       e01: 0
       e02: 0
-      e03: 15.763893
+      e03: 0
       e10: 0
-      e11: 0.38957602
+      e11: 1
       e12: 0
-      e13: 40.496216
+      e13: 0
       e20: 0
       e21: 0
       e22: 1
@@ -1047,15 +879,6 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 1468
-    y: 0
-    width: 452
-    height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 13}
-=======
     x: 1466
     y: 0
     width: 454
@@ -1063,7 +886,6 @@ MonoBehaviour:
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
->>>>>>> Ruben_New
   m_Panes:
   - {fileID: 14}
   m_Selected: 0
@@ -1088,17 +910,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 1468
-    y: 73
-    width: 451
-    height: 926
-=======
     x: 1466
     y: 73
     width: 453
     height: 966
->>>>>>> Ruben_New
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1106,11 +921,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-<<<<<<< HEAD
-    m_CachedPref: 201
-=======
     m_CachedPref: 160
->>>>>>> Ruben_New
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1

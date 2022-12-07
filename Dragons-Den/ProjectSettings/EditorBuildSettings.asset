@@ -6,35 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-<<<<<<< HEAD
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d999de094670b884dbd25ef16c91c33b
   - enabled: 1
-    path: Assets/Scenes/Chariots/ChariotRace.unity
-    guid: 19c71c29dfe9c944e94a9bf8132eb1bf
-=======
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
->>>>>>> Ruben_New
-  - enabled: 1
     path: Assets/Scenes/Chariots/ChariotPlacement.unity
     guid: 4c40a8335d3a75943a2fcaea68385e9f
-  - enabled: 0
-    path: Assets/Scenes/MariusScene.unity
-    guid: 2891a716c48c9a34e8deb1883c7d645f
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/Museum.unity
-    guid: adfdb16b1159f034fb553c913937c0f1
-=======
-    path: Assets/Scenes/MainRoad.unity
-    guid: 377ff4d2e7c24564a9b5f790c366a29c
   - enabled: 1
     path: Assets/Scenes/Chariots/ChariotRace.unity
     guid: fa77f2b33d219f24b8074739da1751b5
->>>>>>> Ruben_New
+  - enabled: 1
+    path: Assets/Scenes/MainRoad.unity
+    guid: 377ff4d2e7c24564a9b5f790c366a29c
+  - enabled: 1
+    path: Assets/Scenes/Museum.unity
+    guid: adfdb16b1159f034fb553c913937c0f1
+  - enabled: 1
+    path: Assets/Scenes/CrossWords.unity
+    guid: ea14d8f1c9cfb4d4194344a5ecc6f24e
   m_configObjects: {}
