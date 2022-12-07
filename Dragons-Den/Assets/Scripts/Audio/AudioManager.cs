@@ -19,6 +19,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopSound(string name)
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.name == name)
+            {
+                s.source.Stop();
+            }
+        }
+    }
+
     public void Play(string name, bool randomizePitch = false)
     {
         foreach (var sound in sounds)

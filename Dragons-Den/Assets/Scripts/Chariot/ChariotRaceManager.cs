@@ -151,10 +151,11 @@ public class ChariotRaceManager : MonoBehaviour
     void NextQuestion()
     {
 
+        AudioManager.StopSound((QuestionBoxText.text).ToString());
+
         if (index == Questions.Length)
         {
-            Debug.Log("Finish");
-            SceneManager.LoadScene("ChariotPlacement", LoadSceneMode.Single);
+            StartCoroutine(FinishLineScene());
             return;
         }
 
@@ -237,6 +238,13 @@ public class ChariotRaceManager : MonoBehaviour
     public static int GetQuestionCount()
     {
         return questionLength;
+    }
+
+    IEnumerator FinishLineScene()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("ChariotPlacement", LoadSceneMode.Single);
+        yield break;
     }
 
     IEnumerator CorrectAnswer()
