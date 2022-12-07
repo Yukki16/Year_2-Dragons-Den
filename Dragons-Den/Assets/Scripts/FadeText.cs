@@ -62,7 +62,6 @@ public class FadeText : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("hello");
         text.alpha = 0;
        runRoutine = null;
     }

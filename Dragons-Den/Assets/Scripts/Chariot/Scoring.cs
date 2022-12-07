@@ -62,6 +62,7 @@ public class Scoring : MonoBehaviour
             {
                 if (transitionToReward == true)
                 {
+
                     FinalScoreOverlay.SetActive(false);
                     ArtifactRewardOverlay.SetActive(true);
                     StartCoroutine(StopRewardStars());
@@ -81,6 +82,7 @@ public class Scoring : MonoBehaviour
 
     IEnumerator StopRewardStars()
     {
+        am.Play("Achievement");
         yield return new WaitForSeconds(rewardStarShootDuration);
         ArtifactRewardOverlay.GetComponentInChildren<ParticleSystem>().Stop();
         Debug.Log("Marker2");
@@ -101,11 +103,6 @@ public class Scoring : MonoBehaviour
 
         Debug.Log("Grade: " + passingPercentage);
 
-        if (correct == 0 && questions == 0)
-        {
-            passingPercentage = 100;
-        }
-
         char placement = 'b';
 
         if (passingPercentage >= silverReq)
@@ -121,6 +118,11 @@ public class Scoring : MonoBehaviour
             placement = 'g';
         }
 
+        if (correct == 0 && questions == 0)
+        {
+            passingPercentage = 100;
+            placement = 'g';
+        }
 
         switch (placement)
         {

@@ -7,8 +7,6 @@ public class ChariotPlacement : MonoBehaviour
     [SerializeField] Scoring fs;
 
     [SerializeField] GameObject playerChariot;
-    [SerializeField] GameObject silverChariot;
-    [SerializeField] GameObject goldChariot;
     [SerializeField] GameObject finishLine;
 
     List<GameObject> chariots = new List<GameObject>();
@@ -22,10 +20,7 @@ public class ChariotPlacement : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeRight;
 
-
         chariots.Add(playerChariot);
-        chariots.Add(silverChariot);
-        chariots.Add(goldChariot);  
     }
 
     private void FixedUpdate()
@@ -46,7 +41,7 @@ public class ChariotPlacement : MonoBehaviour
     void MoveChariots()
     {
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
 
             if (chariots[i].transform.position.x < xPosDissapear)
