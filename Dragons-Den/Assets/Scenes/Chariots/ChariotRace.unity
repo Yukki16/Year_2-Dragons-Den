@@ -874,7 +874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043936834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4384, y: -4.0787, z: 0}
+  m_LocalPosition: {x: -4.91777, y: -3.8285, z: 0}
   m_LocalScale: {x: 1.3977, y: 1.3977, z: 1.3977}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1038,6 +1038,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2069350888}
     m_Modifications:
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.b
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15686275
+      objectReference: {fileID: 0}
     - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -1369,6 +1381,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1731939267}
     m_Modifications:
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3137255
+      objectReference: {fileID: 0}
     - target: {fileID: 3748249404424656309, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1565,11 +1589,11 @@ MonoBehaviour:
   playerStartPosition: {x: 0, y: 0}
   goldOppStartPosition: {x: 0, y: 0}
   silverOppStartPosition: {x: 0, y: 0}
-  endPosition: {x: 11, y: 0}
+  endPosition: {x: 5, y: 0}
   opponentChariots:
   - {fileID: 1731939266}
   - {fileID: 2069350887}
-  ChariotSnapSpeed: 2
+  ChariotSnapSpeed: 1
   Questions:
   - DisplayQuesion: Who was the first king of Rome?
     CorrectAnswer: Romulus
@@ -1617,7 +1641,7 @@ MonoBehaviour:
   - DisplayQuesion: 'The Romans were able create large buildings using:'
     CorrectAnswer: Arches
     WrongAnswers:
-    - Concrete
+    - Granite
     - Pillars
     - Marble
     - Columns
@@ -1809,7 +1833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731939266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.04063, y: -3.1702, z: 0}
+  m_LocalPosition: {x: -4.15, y: -3.13, z: 0}
   m_LocalScale: {x: 1.3977, y: 1.3977, z: 1.3977}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2011,7 +2035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069350887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6429, y: -2.4713, z: 0}
+  m_LocalPosition: {x: -3.29, y: -2.44, z: 0}
   m_LocalScale: {x: 1.3977, y: 1.3977, z: 1.3977}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2026,6 +2050,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1043936835}
     m_Modifications:
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3748249404424656308, guid: f0dd1a35d41d7ae4b92640cf209d7f27, type: 3}
       propertyPath: m_SortingOrder
       value: 5
