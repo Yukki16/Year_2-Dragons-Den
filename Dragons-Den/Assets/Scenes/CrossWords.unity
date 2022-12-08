@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -1275.893}
+  m_margin: {x: 0, y: 0, z: 0.0002746582, w: 13308.561}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2469,19 +2469,28 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   imageToShow: {fileID: 1694137526}
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: b301288062cc3804bad25d5399ee1353, type: 3}
+  - {fileID: 21300000, guid: 45075c140d51bbe479b1b20ae7216e5c, type: 3}
+  - {fileID: 21300000, guid: 3211a2bae7e48694d859fd3708901ecf, type: 3}
+  - {fileID: 21300000, guid: 45075c140d51bbe479b1b20ae7216e5c, type: 3}
+  - {fileID: 21300000, guid: caad19b0fb1c0cb429cefb6b37ebb23c, type: 3}
+  - {fileID: 21300000, guid: 0cfac6a6842bef04d873497861948318, type: 3}
+  - {fileID: 21300000, guid: 484a654553dce2a448e31739c95c6e70, type: 3}
+  - {fileID: 21300000, guid: af9c547e96dca864f8a8ff79e8f7725a, type: 3}
   text: {fileID: 1142390478}
   textToFill:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Julius Caesar was a Roman populair politician and general, who caused civil war
+    within rome. The civil war was caused because he wanted to keep his power.
+  - The Romans had a group of between 100-800  people who came together and made
+    important decisions for the Roman empire.
+  - 'Rome is a city in central Italy, most famous for the roman empire. '
+  - 'A centurion was an officer that led the roman armies. Centurions got their name
+    because they commanded 100 men (centuria = 100 in Latin) '
+  - An arena where gladiators would fight.
+  - An emperor is a leader of the Roman empire.There were about 71 roman empires.
+  - Pompeii is a city that was detroyed by a volcano (mount vesuvius).
+  - 'One of the worst roman emperors, he let rome burn while not doing anything about
+    it. '
   wordsToFind:
   - CAESAR
   - SENATE
@@ -3258,7 +3267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 2
 --- !u!1 &2137894772
 GameObject:

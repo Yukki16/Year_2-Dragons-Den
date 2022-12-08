@@ -275,6 +275,7 @@ public class CrossWord : MonoBehaviour
 
     public void ShowInfo(int index)
     {
+        imageToShow.enabled = true;
         imageToShow.sprite = sprites[index];
         text.text = textToFill[index];
     }
