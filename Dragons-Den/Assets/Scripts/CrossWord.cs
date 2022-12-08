@@ -28,10 +28,8 @@ public class CrossWord : MonoBehaviour
     public string foundWord = string.Empty;
     public string RfoundWord = string.Empty;
     public bool wordFound;
-    
-    bool drawLine;
 
-    bool finishedBuilding;
+    public bool finishedGame;
     int gameLenght;
     int boxSizeX;
     int boxSizeY;
@@ -53,6 +51,14 @@ public class CrossWord : MonoBehaviour
         Debug.Log("box size Y: " + boxSizeY);
         CreateCross(16);
         //CreateCross(LongestWordLenght() * 2);
+    }
+
+    private void Update()
+    {
+        if(finishedGame)
+        {
+
+        }
     }
 
     private void CreateCross(int _gameLenght)
@@ -146,28 +152,8 @@ public class CrossWord : MonoBehaviour
                 //GUI.Box(boxes[i * gameLenght + j], letters[i, j].ToString(), style);
             }
         }
-        finishedBuilding = true;
+        //finishedGame = true;
     }
-
-    public void DrawLine(Transform imageTransform)
-    {
-        Debug.Log("DrawingLine");
-        drawLine = true;
-        lines[lineIndex] = new GameObject("line" + lineIndex);
-        lineRenderer = lines[lineIndex].AddComponent<LineRenderer>();
-        lineRenderer.sharedMaterial = new Material(Shader.Find("Particles/Standard Unlit"));
-
-        lineRenderer.startWidth = 0.1f;
-        lineRenderer.endWidth = 0.1f;
-
-        lineRenderer.startColor = Color.red;
-        lineRenderer.endColor = Color.red;
-
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, new Vector3());
-        lineIndex++;
-    }
-    //Get position of it, check wherther is in order or not, ignore or add to an array
    
     
     private void AddWordToPuzzle(int direction, int x, int y, int i)

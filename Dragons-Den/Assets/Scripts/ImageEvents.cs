@@ -138,6 +138,10 @@ public class ImageEvents : MonoBehaviour
             else
             {
                 crossWord.wordFound = false;
+                if(crossWord.lineIndex == crossWord.wordsToFind.Count)
+                {
+                    crossWord.finishedGame = true;
+                }
             }
         }
         else
