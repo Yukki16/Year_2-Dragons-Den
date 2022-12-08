@@ -171,10 +171,10 @@ public class CrossWord : MonoBehaviour
                     text.alignment = TextAlignmentOptions.Center;
                     text.color = Color.white;
 
-                    //if (letters[i, j] == '-')
-                    //{
-                    //    letters[i, j] = (char)(int)Random.Range(65, 91);
-                    //}
+                    if (letters[i, j] == '-')
+                    {
+                        letters[i, j] = (char)(int)Random.Range(65, 91);
+                    }
 
                     text.text = letters[i, j].ToString();
 

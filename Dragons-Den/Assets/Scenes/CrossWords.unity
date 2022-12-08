@@ -2312,7 +2312,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 561584229}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.022051109
+  m_Size: 0.02205111
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 102222729}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3347,6 +3347,7 @@ MonoBehaviour:
   - NERO
   canvasObjectParent: {fileID: 1532849308}
   letterBackground: {fileID: 21300000, guid: ef1d38a76ccc2134a8b2d4fd6dfa3e4b, type: 3}
+  rewardStarShootDuration: 1
   finishedGame: 0
 --- !u!4 &1530928973
 Transform:
