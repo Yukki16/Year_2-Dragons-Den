@@ -4,6 +4,8 @@ using System;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Mover : MonoBehaviour
 {
+    [SerializeField] Animator anim;
+
     [SerializeField, Tooltip("Character move speed.")]
     float speed = 5;
 
@@ -22,6 +24,11 @@ public class Mover : MonoBehaviour
 
     private Vector2 mouseTargetPosition;
 
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -34,9 +41,24 @@ public class Mover : MonoBehaviour
 
         float height = transform.GetComponent<BoxCollider2D>().size.y;
 
-        RaycastHit2D bottomRayCast = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y -  height / 4), -Vector2.up);
-        RaycastHit2D topRayCast = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + height / 4), -Vector2.up);
+        if (moveInputX == 0 && moveInputY == 0)
+        {
+            anim.SetTrigger("StopWalk");
 
+        }
+
+        if(moveInputX > 0)
+        {
+            anim.SetTrigger("WalkRight");
+        }
+
+        if (moveInputX < 0)
+        {
+            anim.SetTrigger("WalkLeft");
+        }
+
+        RaycastHit2D bottomRayCast = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - height / 4), -Vector2.up);
+        RaycastHit2D topRayCast = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + height / 4), -Vector2.up);
 
         canWalk = false;
 
@@ -51,8 +73,9 @@ public class Mover : MonoBehaviour
         if (lockMovement)
             return;
 
+
         if (moveInputX != 0)
-        {   
+        {
             velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInputX, walkAcceleration * Time.deltaTime);
         }
         else
@@ -60,21 +83,21 @@ public class Mover : MonoBehaviour
             velocity.x = Mathf.MoveTowards(velocity.x, 0, walkDeceleration * Time.deltaTime);
         }
 
-        if (moveInputY > 0 && topRayCast.collider.tag is "Walkable")
-        {
-            velocity.y = Mathf.MoveTowards(velocity.y, speed * moveInputY, walkAcceleration * Time.deltaTime);
-        }
+        //if (moveInputY > 0 && topRayCast.collider.tag is "Walkable")
+        //{
+        //    velocity.y = Mathf.MoveTowards(velocity.y, speed * moveInputY, walkAcceleration * Time.deltaTime);
+        //}
 
-        else if (moveInputY < 0 && bottomRayCast.collider.tag is "Walkable")
-        {
-            velocity.y = Mathf.MoveTowards(velocity.y, speed * moveInputY, walkAcceleration * Time.deltaTime);
-        }
-        else
-        {
-            velocity.y = Mathf.MoveTowards(velocity.y, 0, walkDeceleration * Time.deltaTime);
-        }
+        //else if (moveInputY < 0 && bottomRayCast.collider.tag is "Walkable")
+        //{
+        //    velocity.y = Mathf.MoveTowards(velocity.y, speed * moveInputY, walkAcceleration * Time.deltaTime);
+        //}
+        //else
+        //{
+        //    velocity.y = Mathf.MoveTowards(velocity.y, 0, walkDeceleration * Time.deltaTime);
+        //}
 
-        transform.Translate(velocity * Time.deltaTime); 
+        transform.Translate(velocity * Time.deltaTime);
     }
 
     public void LockMovement(bool condition)

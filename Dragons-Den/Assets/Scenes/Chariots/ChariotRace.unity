@@ -874,7 +874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043936834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.91777, y: -3.8285, z: 0}
+  m_LocalPosition: {x: -6.3277698, y: -3.8285, z: 0}
   m_LocalScale: {x: 1.3977, y: 1.3977, z: 1.3977}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   playerStartPosition: {x: 0, y: 0}
   goldOppStartPosition: {x: 0, y: 0}
   silverOppStartPosition: {x: 0, y: 0}
-  endPosition: {x: 5, y: 0}
+  endPosition: {x: 15, y: 0}
   opponentChariots:
   - {fileID: 1731939266}
   - {fileID: 2069350887}
@@ -1837,7 +1837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731939266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.15, y: -3.13, z: 0}
+  m_LocalPosition: {x: -5.56, y: -3.13, z: 0}
   m_LocalScale: {x: 1.3977, y: 1.3977, z: 1.3977}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2039,7 +2039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069350887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29, y: -2.44, z: 0}
+  m_LocalPosition: {x: -4.7, y: -2.44, z: 0}
   m_LocalScale: {x: 1.3977, y: 1.3977, z: 1.3977}
   m_ConstrainProportionsScale: 0
   m_Children:
