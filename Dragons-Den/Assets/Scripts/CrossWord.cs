@@ -20,18 +20,18 @@ public class CrossWord : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] string[] textToFill;
 
-    public char[,] letters;
+    [System.NonSerialized] public char[,] letters;
     [SerializeField] public List<string> wordsToFind;
     [SerializeField] GameObject canvasObjectParent;
     [SerializeField] Sprite letterBackground;
 
-    public GameObject[] lines;
-    public LineRenderer lineRenderer;
-    public bool doneOnce;
-    public int lineIndex = 0;
-    public string foundWord = string.Empty;
-    public string RfoundWord = string.Empty;
-    public bool wordFound;
+    [System.NonSerialized] public GameObject[] lines;
+    [System.NonSerialized] public LineRenderer lineRenderer;
+    [System.NonSerialized] public bool doneOnce;
+    [System.NonSerialized] public int lineIndex = 0;
+    [System.NonSerialized] public string foundWord = string.Empty;
+    [System.NonSerialized] public string RfoundWord = string.Empty;
+    [System.NonSerialized] public bool wordFound;
 
     private bool transitionToReward = true;
     [SerializeField] private int rewardStarShootDuration;
@@ -41,8 +41,8 @@ public class CrossWord : MonoBehaviour
     int boxSizeX;
     int boxSizeY;
 
-    public Vector2 crossStart;
-    public Vector2 crossEnd;
+    [System.NonSerialized] public Vector2 crossStart;
+    [System.NonSerialized] public Vector2 crossEnd;
 
     int boxIndex = 0;
 
