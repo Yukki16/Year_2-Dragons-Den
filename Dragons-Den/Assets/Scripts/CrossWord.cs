@@ -5,10 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CrossWord : MonoBehaviour
 {
     [SerializeField] Camera cam;
+    [SerializeField] AudioManager am;
+
+    [SerializeField] GameObject ArtifactRewardOverlay;
 
     [SerializeField] Image imageToShow;
     [SerializeField] Sprite[] sprites;
@@ -28,6 +32,9 @@ public class CrossWord : MonoBehaviour
     public string foundWord = string.Empty;
     public string RfoundWord = string.Empty;
     public bool wordFound;
+
+    private bool transitionToReward = true;
+    [SerializeField] private int rewardStarShootDuration;
 
     public bool finishedGame;
     int gameLenght;
@@ -57,8 +64,30 @@ public class CrossWord : MonoBehaviour
     {
         if(finishedGame)
         {
+            if(!transitionToReward && Input.anyKey)
+            {
+                SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
+            }
 
+            ArtifactRewardOverlay.SetActive(true);
+            StartCoroutine(StopRewardStars());
+            StartCoroutine(DelayTransition());
         }
+    }
+
+    IEnumerator StopRewardStars()
+    {
+        am.Play("Achievement");
+        yield return new WaitForSeconds(rewardStarShootDuration);
+        ArtifactRewardOverlay.GetComponentInChildren<ParticleSystem>().Stop();
+        Debug.Log("Marker2");
+        yield break;
+    }
+
+    IEnumerator DelayTransition()
+    {
+        yield return new WaitForSeconds(0.5f);
+        transitionToReward = false;
     }
 
     private void CreateCross(int _gameLenght)
@@ -137,10 +166,13 @@ public class CrossWord : MonoBehaviour
                     text.alignment = TextAlignmentOptions.Center;
                     text.color = Color.white;
 
-                    if(letters[i,j] == '-')
-                    {
-                        letters[i, j] = (char)(int)Random.Range(65, 91);
-                    }
+
+                    //WARNING
+                    //if(letters[i,j] == '-')
+                    //{
+                    //    letters[i, j] = (char)(int)Random.Range(65, 91);
+                    //}
+
                     text.text = letters[i, j].ToString();
 
 

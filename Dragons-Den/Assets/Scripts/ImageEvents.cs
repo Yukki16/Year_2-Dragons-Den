@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ImageEvents : MonoBehaviour
 {
+    [SerializeField] private AudioManager am;
+
     public CrossWord crossWord;
     public Camera cam;
 
@@ -17,6 +19,8 @@ public class ImageEvents : MonoBehaviour
 
     private void Start()
     {
+
+        am = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         //mask = LayerMask.GetMask("Default");
 
         var trigger = gameObject.AddComponent<EventTrigger>();
@@ -137,6 +141,8 @@ public class ImageEvents : MonoBehaviour
             }
             else
             {
+                am.Play("Correct");
+
                 crossWord.wordFound = false;
                 if(crossWord.lineIndex == crossWord.wordsToFind.Count)
                 {
