@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 561584229}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.022051109
+  m_Size: 0.02205111
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1854,7 +1854,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 102222729}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb993d851cc5644b8d252e419c491e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenOrientation: 3
+  screenOrientation: 4
 --- !u!114 &1712518589
 MonoBehaviour:
   m_ObjectHideFlags: 0

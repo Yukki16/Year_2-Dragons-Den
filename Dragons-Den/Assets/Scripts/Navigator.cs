@@ -62,6 +62,10 @@ public class Navigator : MonoBehaviour
     {
         SceneManager.LoadScene("ChariotRace", LoadSceneMode.Single);
     }
+    public void LoadCrossGame()
+    {
+        SceneManager.LoadScene("CrossWords", LoadSceneMode.Single);
+    }
 
     private void ResetInfoPopup()
     {

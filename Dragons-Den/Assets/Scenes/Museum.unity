@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb993d851cc5644b8d252e419c491e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenOrientation: 3
+  screenOrientation: 4
 --- !u!4 &2084176277
 Transform:
   m_ObjectHideFlags: 0
