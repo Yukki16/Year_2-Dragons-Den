@@ -114,7 +114,6 @@ public class ImageEvents : MonoBehaviour
                 int index = 0;
                 for (int i = (int)Mathf.Min(crossWord.crossStart.x, crossWord.crossEnd.x); i <= (int)Mathf.Max(crossWord.crossStart.x, crossWord.crossEnd.x); i++)
                 {
-                    crossWord.ShowInfo(i);
                     crossWord.foundWord +=crossWord.letters[i, (int)Mathf.Min(crossWord.crossStart.y, crossWord.crossEnd.y) + index];
                     index++;
                 }
@@ -124,6 +123,7 @@ public class ImageEvents : MonoBehaviour
                 {
                     if (crossWord.foundWord.Equals(crossWord.wordsToFind[i]) || crossWord.RfoundWord.Equals(crossWord.wordsToFind[i]))
                     {
+                        crossWord.ShowInfo(i);
                         crossWord.wordFound = true;
                         break;
                     }
