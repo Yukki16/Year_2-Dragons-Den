@@ -30,6 +30,8 @@ public class Scoring : MonoBehaviour
 
     private bool canExit;
 
+    private bool reievedAward;
+
     private bool transitionToReward;
 
     [SerializeField] private float rewardStarShootDuration;
@@ -61,8 +63,7 @@ public class Scoring : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 if (transitionToReward == true)
-                {
-
+                {   
                     FinalScoreOverlay.SetActive(false);
                     ArtifactRewardOverlay.SetActive(true);
                     StartCoroutine(StopRewardStars());
@@ -74,8 +75,7 @@ public class Scoring : MonoBehaviour
                     Debug.Log("Marker");
 
                     SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
-                }
-                
+                }        
             }
         }
     }
@@ -93,6 +93,11 @@ public class Scoring : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         transitionToReward = false;
+    }
+
+    void RecievedAward()
+    {
+
     }
 
     public IEnumerator DisplayFinalScoreElements(float correct, float questions, float goldReq, float silverReq)
@@ -113,7 +118,9 @@ public class Scoring : MonoBehaviour
 
         if (passingPercentage >= goldReq)
         {
+            if (!ArtifactTracker.HasVase())
             transitionToReward = true;
+            ArtifactTracker.HasVase(true);
             Debug.Log("Gold");
             placement = 'g';
         }
