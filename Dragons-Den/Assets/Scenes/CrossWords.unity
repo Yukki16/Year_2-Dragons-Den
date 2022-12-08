@@ -1055,6 +1055,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561584228}
   m_CullTransparentMesh: 1
+--- !u!114 &600440578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1042296893866764621, guid: 7a6a6ccf6b283994c8f78f17e5a05946, type: 3}
+  m_PrefabInstance: {fileID: 285486970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5248c527f73b62b44b2b9879657c793e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,6 +2608,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8866971117182534480, guid: d2101798dbe25364e9925f0b75978bda, type: 3}
+      propertyPath: m_Name
+      value: Tablet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866971117182534480, guid: d2101798dbe25364e9925f0b75978bda, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2101798dbe25364e9925f0b75978bda, type: 3}
 --- !u!224 &1364035614 stripped
@@ -2747,8 +2766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
-  am: {fileID: 0}
-  ArtifactRewardOverlay: {fileID: 0}
+  am: {fileID: 600440578}
+  ArtifactRewardOverlay: {fileID: 1788241084}
   imageToShow: {fileID: 1694137526}
   sprites:
   - {fileID: 21300000, guid: b301288062cc3804bad25d5399ee1353, type: 3}
@@ -3129,6 +3148,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760717228}
   m_CullTransparentMesh: 1
+--- !u!1 &1788241084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4494182650675532355, guid: d2101798dbe25364e9925f0b75978bda, type: 3}
+  m_PrefabInstance: {fileID: 1288386499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815005500
 GameObject:
   m_ObjectHideFlags: 0

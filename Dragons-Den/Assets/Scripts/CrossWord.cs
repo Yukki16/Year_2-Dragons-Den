@@ -72,6 +72,11 @@ public class CrossWord : MonoBehaviour
             ArtifactRewardOverlay.SetActive(true);
             StartCoroutine(StopRewardStars());
             StartCoroutine(DelayTransition());
+
+            for (int i = 0; i < wordsToFind.Count; i++)
+            {
+                lines[i].SetActive(false);
+            }
         }
     }
 
@@ -166,9 +171,7 @@ public class CrossWord : MonoBehaviour
                     text.alignment = TextAlignmentOptions.Center;
                     text.color = Color.white;
 
-
-                    //WARNING
-                    //if(letters[i,j] == '-')
+                    //if (letters[i, j] == '-')
                     //{
                     //    letters[i, j] = (char)(int)Random.Range(65, 91);
                     //}
