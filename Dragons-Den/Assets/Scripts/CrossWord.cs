@@ -64,19 +64,31 @@ public class CrossWord : MonoBehaviour
     {
         if(finishedGame)
         {
-            if(!transitionToReward && Input.anyKey)
+            if (ArtifactTracker.HasTablet())
             {
                 SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
             }
 
-            ArtifactRewardOverlay.SetActive(true);
-            StartCoroutine(StopRewardStars());
-            StartCoroutine(DelayTransition());
+            if (!transitionToReward && Input.anyKey)
+            {
+                SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
+            }
+  
+            if (!ArtifactTracker.HasTablet())
+            {
+                ArtifactRewardOverlay.SetActive(true);
+                StartCoroutine(StopRewardStars());
+                StartCoroutine(DelayTransition());
+                ArtifactTracker.HasTablet(true);
+            }
+       
 
             for (int i = 0; i < wordsToFind.Count; i++)
             {
                 lines[i].SetActive(false);
             }
+
+            finishedGame = false;
         }
     }
 
@@ -171,10 +183,11 @@ public class CrossWord : MonoBehaviour
                     text.alignment = TextAlignmentOptions.Center;
                     text.color = Color.white;
 
-                    if (letters[i, j] == '-')
-                    {
-                        letters[i, j] = (char)(int)Random.Range(65, 91);
-                    }
+
+                   //if (letters[i, j] == '-')
+                   // {
+                   //     letters[i, j] = (char)(int)Random.Range(65, 91);
+                   // }
 
                     text.text = letters[i, j].ToString();
 
