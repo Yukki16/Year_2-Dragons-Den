@@ -68,11 +68,6 @@ public class CrossWord : MonoBehaviour
             {
                 SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
             }
-
-            if (!transitionToReward && Input.anyKey)
-            {
-                SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
-            }
   
             if (!ArtifactTracker.HasTablet())
             {
@@ -81,7 +76,6 @@ public class CrossWord : MonoBehaviour
                 StartCoroutine(DelayTransition());
                 ArtifactTracker.HasTablet(true);
             }
-       
 
             for (int i = 0; i < wordsToFind.Count; i++)
             {
@@ -89,6 +83,12 @@ public class CrossWord : MonoBehaviour
             }
 
             finishedGame = false;
+
+        }
+
+        if (!transitionToReward && Input.anyKey)
+        {
+            SceneManager.LoadScene("MainRoad", LoadSceneMode.Single);
         }
     }
 
