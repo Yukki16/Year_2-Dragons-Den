@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
         
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 tp = followTarget.transform.position;
         if (transform.position.x < boundRight && transform.position.x > boundLeft)     
