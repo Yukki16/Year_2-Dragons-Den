@@ -63,11 +63,11 @@ public class ImageEvents : MonoBehaviour
 
             if(crossWord.crossStart.x == crossWord.crossEnd.x)
             {
-                crossWord.foundWord = "";
-                crossWord.RfoundWord = "";
-                for (int i = (int)Mathf.Min(crossWord.crossStart.y, crossWord.crossEnd.y); i < (int)Mathf.Max(crossWord.crossStart.y, crossWord.crossEnd.y); i++)
+                crossWord.foundWord = string.Empty;
+                crossWord.RfoundWord = string.Empty;
+                for (int i = (int)Mathf.Min(crossWord.crossStart.y, crossWord.crossEnd.y); i <= (int)Mathf.Max(crossWord.crossStart.y, crossWord.crossEnd.y); i++)
                 {
-                    crossWord.foundWord = string.Concat(crossWord.foundWord, crossWord.letters[(int)crossWord.crossStart.x, i]);    
+                    crossWord.foundWord += crossWord.letters[(int)crossWord.crossStart.x, i];    
                 }
                 crossWord.RfoundWord = ReverseString(crossWord.foundWord);
 
@@ -75,6 +75,7 @@ public class ImageEvents : MonoBehaviour
                 {
                     if(crossWord.foundWord.Equals(crossWord.wordsToFind[i]) || crossWord.RfoundWord.Equals(crossWord.wordsToFind[i]))
                     {
+                        crossWord.ShowInfo(i);
                         crossWord.wordFound = true;
                         break;
                     }
@@ -83,11 +84,11 @@ public class ImageEvents : MonoBehaviour
 
             if (crossWord.crossStart.y == crossWord.crossEnd.y)
             {
-                crossWord.foundWord = "";
-                crossWord.RfoundWord = "";
-                for (int i = (int)Mathf.Min(crossWord.crossStart.x, crossWord.crossEnd.x); i < (int)Mathf.Max(crossWord.crossStart.x, crossWord.crossEnd.x); i++)
+                crossWord.foundWord = string.Empty;
+                crossWord.RfoundWord = string.Empty;
+                for (int i = (int)Mathf.Min(crossWord.crossStart.x, crossWord.crossEnd.x); i <= (int)Mathf.Max(crossWord.crossStart.x, crossWord.crossEnd.x); i++)
                 {
-                    crossWord.foundWord = string.Concat(crossWord.foundWord, crossWord.letters[i, (int)crossWord.crossStart.y]);
+                    crossWord.foundWord +=crossWord.letters[i, (int)crossWord.crossStart.y];
                 }
                 crossWord.RfoundWord = ReverseString(crossWord.foundWord);
 
@@ -95,6 +96,7 @@ public class ImageEvents : MonoBehaviour
                 {
                     if (crossWord.foundWord.Equals(crossWord.wordsToFind[i]) || crossWord.RfoundWord.Equals(crossWord.wordsToFind[i]))
                     {
+                        crossWord.ShowInfo(i);
                         crossWord.wordFound = true;
                         break;
                     }
@@ -103,12 +105,13 @@ public class ImageEvents : MonoBehaviour
 
             if (Mathf.Abs(crossWord.crossStart.y - crossWord.crossEnd.y) == Mathf.Abs(crossWord.crossStart.x - crossWord.crossEnd.x))
             {
-                crossWord.foundWord = "";
-                crossWord.RfoundWord = "";
+                crossWord.foundWord = string.Empty;
+                crossWord.RfoundWord = string.Empty;
                 int index = 0;
-                for (int i = (int)Mathf.Min(crossWord.crossStart.x, crossWord.crossEnd.x); i < (int)Mathf.Max(crossWord.crossStart.x, crossWord.crossEnd.x); i++)
-                {                  
-                    crossWord.foundWord = string.Concat(crossWord.foundWord, crossWord.letters[i, (int)Mathf.Max(crossWord.crossStart.y, crossWord.crossEnd.y) + index]);
+                for (int i = (int)Mathf.Min(crossWord.crossStart.x, crossWord.crossEnd.x); i <= (int)Mathf.Max(crossWord.crossStart.x, crossWord.crossEnd.x); i++)
+                {
+                    crossWord.ShowInfo(i);
+                    crossWord.foundWord +=crossWord.letters[i, (int)Mathf.Min(crossWord.crossStart.y, crossWord.crossEnd.y) + index];
                     index++;
                 }
                 crossWord.RfoundWord = ReverseString(crossWord.foundWord);
@@ -126,7 +129,8 @@ public class ImageEvents : MonoBehaviour
             if (!crossWord.wordFound)
             {
                 Debug.Log("Words not found");
-
+                Debug.Log(crossWord.foundWord);
+                Debug.Log(crossWord.RfoundWord);
                 crossWord.lineIndex--;
                 crossWord.lines[crossWord.lineIndex].GetComponent<LineRenderer>().enabled = false;
                 Destroy(crossWord.lines[crossWord.lineIndex]);
