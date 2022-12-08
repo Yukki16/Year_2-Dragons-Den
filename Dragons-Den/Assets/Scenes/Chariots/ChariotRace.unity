@@ -1613,6 +1613,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 167594866}
     m_Modifications:
+    - target: {fileID: 1149027854, guid: 7e7961eb33429904488b2c896b8862ff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 511
+      objectReference: {fileID: 0}
     - target: {fileID: 1149027855, guid: 7e7961eb33429904488b2c896b8862ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

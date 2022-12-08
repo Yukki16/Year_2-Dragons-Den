@@ -95,7 +95,7 @@ public class CrossWord : MonoBehaviour
             {
                 if (boxIndex < gameLenght * gameLenght)
                 {
-                    var gameObject = new GameObject("Letter");
+                    var gameObject = new GameObject("   ");
                     gameObject.transform.parent = canvasObjectParent.transform;
 
                    
@@ -109,7 +109,7 @@ public class CrossWord : MonoBehaviour
                     //The Image child
                     Image image = gameObject.AddComponent<Image>();
                     image.sprite = letterBackground;
-                    Vector2 newPos = new Vector2(gameObject.transform.parent.position.x + boxSizeX / 125.0f * i, gameObject.transform.parent.position.y - boxSizeY / 125.0f * j);
+                    Vector2 newPos = new Vector2(gameObject.transform.parent.position.x + boxSizeX / 100.0f * i, gameObject.transform.parent.position.y - boxSizeY / 125.0f * j);
                     gameObject.transform.position = newPos;
 
                     image.transform.localScale = new Vector2(boxSizeX / 88.0f, boxSizeY / 88.0f);

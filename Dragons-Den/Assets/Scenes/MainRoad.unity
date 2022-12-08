@@ -9244,7 +9244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   _camera: {fileID: 519420031}
-  speed: 1
+  speed: 3
   walkAcceleration: 10
   walkDeceleration: 10
 --- !u!1 &1828093147
